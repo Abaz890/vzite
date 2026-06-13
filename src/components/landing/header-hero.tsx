@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react"
 import {
   ChevronDown, ChevronRight, Users, Home, Building2, MapPin,
-  BarChart3, Calendar, Database, GitBranch, TrendingUp, Settings,
+  Calendar, Database, GitBranch, TrendingUp, Settings,
   SlidersHorizontal, RotateCcw, Briefcase, Megaphone,
   Shield, DollarSign, Monitor, Search, Globe, Phone, Mail,
   BookOpen, Headphones, Zap, AtSign,
   Menu, X, ArrowRight, Video, MessageSquare, RadioTower, Layers,
   Star, FileText, UserCheck, Target,
-  Share2, Smartphone
+  Share2
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
@@ -68,7 +68,7 @@ const companyItems = [
 
 const words = [
   { text: "Native" },
-  { text: "Meta" },
+  { text: "Meta", className: "text-blue-500" },
   { text: "Integration" },
 ]
 
@@ -102,12 +102,10 @@ export function HeaderHero() {
         />
       </div>
 
-      {/* Unified pill nav */}
-      <div className="relative z-30 px-4 pt-5">
-        <nav
-          ref={navRef}
-          className="mx-auto max-w-7xl bg-white rounded-full px-6 py-3 shadow-lg flex items-center justify-between gap-4 border border-slate-200"
-        >
+      {/* Nav wrapper — full width for mega menu */}
+      <div className="relative z-30 px-4 pt-5" ref={navRef}>
+        {/* Pill nav bar */}
+        <nav className="mx-auto max-w-7xl bg-white rounded-full px-6 py-3 shadow-lg flex items-center justify-between gap-4 border border-slate-200">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 flex-shrink-0">
             <span className="font-black text-slate-900 text-xl tracking-tighter">VZITE</span>
@@ -115,77 +113,19 @@ export function HeaderHero() {
 
           {/* Desktop nav items */}
           <div className="hidden lg:flex items-center gap-1">
-            <NavItem label="Features" isOpen={openMenu === "features"} onClick={() => toggle("features")}>
-              {openMenu === "features" && (
-                <DropdownPanel wide className="left-0">
-                  <div className="p-4">
-                    <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-3 px-1">Platform Features</div>
-                    <div className="grid grid-cols-2 gap-0.5">
-                      {featuresItems.map((item) => (
-                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
-                      ))}
-                    </div>
-                  </div>
-                </DropdownPanel>
-              )}
-            </NavItem>
-
-            <NavItem label="Solutions" isOpen={openMenu === "solutions"} onClick={() => toggle("solutions")}>
-              {openMenu === "solutions" && (
-                <DropdownPanel className="left-0">
-                  <div className="p-4">
-                    <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-3 px-1">Built For Every Team</div>
-                    <div className="flex flex-col gap-0.5">
-                      {solutionsItems.map((item) => (
-                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
-                      ))}
-                    </div>
-                  </div>
-                </DropdownPanel>
-              )}
-            </NavItem>
-
-            <NavItem label="Integrations" isOpen={openMenu === "integrations"} onClick={() => toggle("integrations")}>
-              {openMenu === "integrations" && (
-                <DropdownPanel wide className="-left-20">
-                  <div className="p-4">
-                    <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-3 px-1">Connected Platforms</div>
-                    <div className="grid grid-cols-3 gap-0.5">
-                      {integrationsItems.map((item) => (
-                        <a
-                          key={item.label}
-                          href="#"
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group"
-                        >
-                          <item.icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
-                          <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium">{item.label}</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </DropdownPanel>
-              )}
-            </NavItem>
-
-            <a href="#" className="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all">
-              <Smartphone className="w-4 h-4" />
-              Mobile App
-            </a>
-
-            <NavItem label="Company" isOpen={openMenu === "company"} onClick={() => toggle("company")}>
-              {openMenu === "company" && (
-                <DropdownPanel className="-left-10">
-                  <div className="p-4">
-                    <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-3 px-1">Company</div>
-                    <div className="flex flex-col gap-0.5">
-                      {companyItems.map((item) => (
-                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
-                      ))}
-                    </div>
-                  </div>
-                </DropdownPanel>
-              )}
-            </NavItem>
+            {(["features", "solutions", "integrations", "company"] as MenuKey[]).map((key) => (
+              <button
+                key={key}
+                onClick={() => toggle(key)}
+                className={cn(
+                  "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all capitalize",
+                  openMenu === key ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                )}
+              >
+                {key}
+                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", openMenu === key && "rotate-180")} />
+              </button>
+            ))}
           </div>
 
           {/* Right actions */}
@@ -211,11 +151,73 @@ export function HeaderHero() {
           </button>
         </nav>
 
+        {/* Full-width Mega Menu Dropdowns */}
+        {openMenu && (
+          <div className="hidden lg:block absolute left-4 right-4 top-[calc(100%-8px)] animate-fade-in">
+            <div className="mx-auto max-w-7xl">
+              <div className="bg-white rounded-2xl shadow-2xl shadow-black/10 border border-slate-100 overflow-hidden">
+
+                {openMenu === "features" && (
+                  <div className="p-6">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Platform Features</p>
+                    <div className="grid grid-cols-4 gap-1">
+                      {featuresItems.map((item) => (
+                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {openMenu === "solutions" && (
+                  <div className="p-6">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Built For Every Team</p>
+                    <div className="grid grid-cols-3 gap-1">
+                      {solutionsItems.map((item) => (
+                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {openMenu === "integrations" && (
+                  <div className="p-6">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Connected Platforms</p>
+                    <div className="grid grid-cols-6 gap-1">
+                      {integrationsItems.map((item) => (
+                        <a
+                          key={item.label}
+                          href="#"
+                          className="flex items-center gap-2 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                        >
+                          <item.icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
+                          <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium truncate">{item.label}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {openMenu === "company" && (
+                  <div className="p-6">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Company</p>
+                    <div className="grid grid-cols-4 gap-1">
+                      {companyItems.map((item) => (
+                        <DropdownItem key={item.label} icon={item.icon} label={item.label} desc={item.desc} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden mx-auto max-w-7xl mt-2 bg-white rounded-2xl shadow-2xl p-4 animate-fade-up border border-slate-200">
             <div className="flex flex-col gap-1">
-              {["Features", "Solutions", "Integrations", "Mobile App", "Company"].map(item => (
+              {["Features", "Solutions", "Integrations", "Company"].map(item => (
                 <a key={item} href="#" className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors">{item}</a>
               ))}
               <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
@@ -232,27 +234,23 @@ export function HeaderHero() {
       {/* Hero content */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-12 md:py-16">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Subtitle above headline */}
           <div className="animate-fade-up flex items-center justify-center gap-2 text-slate-400 text-sm font-medium mb-6">
             UAE's Most Powerful Real Estate CRM
           </div>
 
-          {/* Main headline with typewriter */}
           <h1 className="animate-fade-up-delay text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.08] tracking-tight mb-6">
             The Real Estate CRM Built for UAE
             <br />
             Brokerages with{" "}
             <span className="inline-flex items-center">
-              <TypewriterEffectSmooth words={words} cursorClassName="bg-slate-900" />
+              <TypewriterEffectSmooth words={words} cursorClassName="bg-blue-500" />
             </span>
           </h1>
 
-          {/* Subtext */}
           <p className="animate-fade-up-delay2 text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
             Instant lead distribution from Meta, automatic syncing with Property Finder, Bayut & Dubizzle, and advanced tools built for managing international investors in the UAE.
           </p>
 
-          {/* CTA row */}
           <div className="animate-fade-up-delay2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#"
@@ -272,7 +270,6 @@ export function HeaderHero() {
             </a>
           </div>
 
-          {/* Social proof */}
           <div className="animate-fade-up-delay2 mt-14 flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {[
               { value: "500+", label: "UAE Brokerages" },
@@ -292,58 +289,6 @@ export function HeaderHero() {
   )
 }
 
-// Sub-components
-
-function NavItem({
-  label,
-  isOpen,
-  onClick,
-  children,
-}: {
-  label: string
-  isOpen: boolean
-  onClick: () => void
-  children?: React.ReactNode
-}) {
-  return (
-    <div className="relative">
-      <button
-        onClick={onClick}
-        className={cn(
-          "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all",
-          isOpen ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-        )}
-      >
-        {label}
-        <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", isOpen && "rotate-180")} />
-      </button>
-      {children}
-    </div>
-  )
-}
-
-function DropdownPanel({
-  children,
-  className,
-  wide,
-}: {
-  children: React.ReactNode
-  className?: string
-  wide?: boolean
-}) {
-  return (
-    <div
-      className={cn(
-        "absolute top-[calc(100%+8px)] bg-white rounded-2xl shadow-2xl shadow-black/10 border border-slate-100 animate-fade-in z-50 overflow-hidden",
-        wide ? "min-w-[480px]" : "min-w-[280px]",
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
-}
-
 function DropdownItem({
   icon: Icon,
   label,
@@ -358,8 +303,8 @@ function DropdownItem({
       href="#"
       className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
     >
-      <div className="w-7 h-7 rounded-lg bg-teal-50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
-        <Icon className="w-3.5 h-3.5 text-teal-600" />
+      <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-200 transition-colors">
+        <Icon className="w-3.5 h-3.5 text-slate-600" />
       </div>
       <div>
         <div className="text-sm font-semibold text-slate-800 group-hover:text-slate-900">{label}</div>
