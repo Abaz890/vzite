@@ -1,6 +1,5 @@
-import { Building2, ArrowRight, Smartphone, QrCode } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
-// SVG social icons
 const FbIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12.07h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12.07h2.773l-.443 2.89h-2.33v6.988C20.343 21.128 24 16.991 24 12.073z"/>
@@ -60,24 +59,23 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-slate-950 text-white">
+    <footer className="bg-white text-slate-900 border-t border-slate-100">
       {/* CTA Banner */}
-      <div className="border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <div className="border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 py-10 md:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-teal-500/10 text-teal-400 text-xs font-semibold px-4 py-2 rounded-full mb-6 border border-teal-500/20">
-                <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+              <p className="text-xs font-bold text-teal-600 uppercase tracking-widest mb-4">
                 Ready to Transform Your Brokerage?
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
-                Join 500+ UAE Brokerages
+              </p>
+              <h2 className="text-3xl md:text-4xl font-black leading-tight mb-4">
+                <span className="text-slate-900">Join 500+ UAE Brokerages</span>
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">
                   Growing With Vzite
                 </span>
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed">
+              <p className="text-slate-500 text-lg leading-relaxed">
                 Start your free demo today. No credit card required. Full onboarding support included.
               </p>
             </div>
@@ -85,14 +83,14 @@ export function Footer() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#"
-                className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold text-sm px-6 py-4 rounded-2xl shadow-lg shadow-teal-500/20 hover:shadow-teal-500/30 hover:scale-[1.02] transition-all"
+                className="flex-1 flex items-center justify-center gap-2 bg-slate-900 text-white font-bold text-sm px-6 py-4 rounded-xl transition-all hover:bg-slate-800"
               >
                 Get Free Demo
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="flex-1 flex items-center justify-center gap-2 border border-white/10 text-white/80 hover:text-white hover:border-white/20 font-semibold text-sm px-6 py-4 rounded-2xl transition-all hover:bg-white/5"
+                className="flex-1 flex items-center justify-center gap-2 border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 font-semibold text-sm px-6 py-4 rounded-2xl transition-all hover:bg-slate-50"
               >
                 Talk to Sales
               </a>
@@ -102,19 +100,15 @@ export function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
-            {/* Logo */}
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-teal-500/30">
-                <Building2 className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
-              <span className="font-black text-white text-xl tracking-tight">vzite</span>
+            <div className="mb-6">
+              <span className="font-black text-slate-900 text-2xl tracking-tighter uppercase">Vzite</span>
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-xs">
+            <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-xs">
               The next-generation Real Estate CRM designed exclusively for UAE brokerages. Built with native Meta integration, portal sync, and international investor tools.
             </p>
 
@@ -130,47 +124,22 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                  className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 transition-all"
                 >
                   <s.Icon />
                 </a>
               ))}
-            </div>
-
-            {/* QR Code app download */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-              <div className="flex items-start gap-4">
-                {/* QR code placeholder */}
-                <div className="w-20 h-20 bg-white rounded-xl p-2 flex-shrink-0">
-                  <div className="w-full h-full relative">
-                    <QrCode className="w-full h-full text-slate-900" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <Smartphone className="w-4 h-4 text-teal-400" />
-                    <span className="text-xs font-bold text-white">Download the App</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
-                    Scan to download Vzite for iOS or Android. Manage leads on the go.
-                  </p>
-                  <div className="flex gap-2">
-                    <span className="text-[10px] bg-white/10 text-white/70 px-2.5 py-1 rounded-full font-medium">iOS</span>
-                    <span className="text-[10px] bg-white/10 text-white/70 px-2.5 py-1 rounded-full font-medium">Android</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <div className="text-xs font-bold text-white uppercase tracking-widest mb-5">{heading}</div>
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-5">{heading}</div>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
+                    <a href="#" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
                       {link}
                     </a>
                   </li>
@@ -182,21 +151,21 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-400">
             © {new Date().getFullYear()} Vzite Technologies LLC. All rights reserved. Dubai, UAE.
           </div>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((link) => (
-              <a key={link} href="#" className="text-xs text-slate-500 hover:text-white transition-colors">
+              <a key={link} href="#" className="text-xs text-slate-400 hover:text-slate-900 transition-colors">
                 {link}
               </a>
             ))}
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs text-slate-500">All systems operational</span>
+            <span className="text-xs text-slate-400">All systems operational</span>
           </div>
         </div>
       </div>

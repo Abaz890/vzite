@@ -118,6 +118,7 @@ export function FeaturesCarousel() {
   const closeCard = () => {
     setExpandedId(null)
     document.body.style.overflow = ""
+    setCurrentExpanded(null)
   }
 
   const navigateCard = (dir: "prev" | "next") => {
@@ -139,21 +140,16 @@ export function FeaturesCarousel() {
   }, [currentExpanded])
 
   return (
-    <section className="py-20 md:py-28 bg-white overflow-hidden">
+    <section className="py-12 md:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 bg-violet-50 text-violet-700 text-xs font-semibold px-4 py-2 rounded-full mb-5 border border-violet-100">
-              <Users className="w-3.5 h-3.5" />
-              Platform Capabilities
-            </div>
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Platform Capabilities</p>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
               Powerful Tools for
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
-                Real Estate Success
-              </span>
+              Real Estate Success
             </h2>
           </div>
           <p className="text-slate-500 max-w-sm md:text-right leading-relaxed">
@@ -186,7 +182,7 @@ export function FeaturesCarousel() {
       {/* Expanded overlay */}
       {expandedId && currentExpanded && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in" onClick={closeCard}>
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-slate-950/90" />
           <div
             className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl animate-fade-up max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
@@ -196,23 +192,24 @@ export function FeaturesCarousel() {
               <img
                 src={currentExpanded.image}
                 alt={currentExpanded.title}
-                className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60"
+                className="absolute inset-0 w-full h-full object-cover opacity-80"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[10px] font-bold px-3 py-1.5 rounded-full w-fit mb-3">
+                <div className="inline-flex items-center gap-2 bg-black/50 border border-white/20 text-white text-[10px] font-bold px-3 py-1.5 rounded-full w-fit mb-3">
                   {currentExpanded.category}
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-white">{currentExpanded.title}</h3>
               </div>
 
               {/* Nav arrows */}
-              <button onClick={() => navigateCard("prev")} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm">
+              <button onClick={() => navigateCard("prev")} className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors">
                 <ArrowLeft className="w-4 h-4" />
               </button>
-              <button onClick={() => navigateCard("next")} className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm">
+              <button onClick={() => navigateCard("next")} className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors">
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <button onClick={closeCard} className="absolute top-4 right-4 w-9 h-9 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm">
+              <button onClick={closeCard} className="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -242,7 +239,7 @@ export function FeaturesCarousel() {
 
                   <a
                     href="#"
-                    className="mt-4 block w-full bg-gradient-to-r from-teal-500 to-emerald-600 text-white text-sm font-bold py-3 rounded-xl text-center hover:shadow-lg hover:shadow-teal-500/25 transition-all"
+                    className="mt-4 block w-full bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold py-3 rounded-xl text-center transition-all"
                   >
                     Book a Demo
                   </a>
@@ -270,12 +267,12 @@ function FeatureCard({ card, onExpand }: { card: CardData; onExpand: () => void 
           alt={card.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className={`absolute inset-0 bg-gradient-to-t ${card.accentColor}`} />
+        <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent`} />
       </div>
 
       {/* Content overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[10px] font-bold px-2.5 py-1 rounded-full w-fit mb-3">
+        <div className="inline-flex items-center gap-1.5 bg-black/50 border border-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full w-fit mb-3">
           {card.category}
         </div>
         <h3 className="text-xl font-black text-white leading-tight mb-2">{card.title}</h3>

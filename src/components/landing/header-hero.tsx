@@ -10,6 +10,7 @@ import {
   Share2, Smartphone
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
 
 type MenuKey = "features" | "solutions" | "integrations" | "company" | null
 
@@ -65,6 +66,12 @@ const companyItems = [
   { icon: Headphones, label: "Customer Support", desc: "We're here to help" },
 ]
 
+const words = [
+  { text: "Native" },
+  { text: "Meta" },
+  { text: "Integration" },
+]
+
 export function HeaderHero() {
   const [openMenu, setOpenMenu] = useState<MenuKey>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -83,79 +90,31 @@ export function HeaderHero() {
   const toggle = (key: MenuKey) => setOpenMenu(prev => prev === key ? null : key)
 
   return (
-    <section className="relative min-h-screen overflow-hidden hero-gradient flex flex-col">
-      {/* Decorative floating blobs */}
+    <section className="relative min-h-screen overflow-hidden flex flex-col bg-white">
+      {/* Subtle grid overlay */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="animate-float-blob absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full bg-teal-400/20 blur-[80px]" />
-        <div className="animate-float-blob-delay absolute top-1/3 -right-32 w-[400px] h-[400px] rounded-full bg-emerald-300/15 blur-[60px]" />
-        <div className="animate-float-blob-delay2 absolute bottom-10 left-1/3 w-[350px] h-[350px] rounded-full bg-indigo-500/20 blur-[70px]" />
-        <div className="absolute top-20 right-1/4 w-[200px] h-[200px] rounded-full bg-cyan-300/10 blur-[50px]" />
-
-        {/* Floating mini UI decorations */}
-        <FloatingWidget className="top-28 right-16 animate-float-blob-delay" delay="0s">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-emerald-400/80 flex items-center justify-center">
-              <Users className="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <div className="text-xs font-semibold text-white">New Lead</div>
-              <div className="text-[10px] text-white/60">Meta Ads · 2s ago</div>
-            </div>
-            <div className="ml-2 w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          </div>
-        </FloatingWidget>
-
-        <FloatingWidget className="top-1/2 left-8 animate-float-blob" delay="1s">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-blue-400/80 flex items-center justify-center">
-              <BarChart3 className="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <div className="text-xs font-semibold text-white">47 Leads Today</div>
-              <div className="text-[10px] text-emerald-300">↑ 23% vs yesterday</div>
-            </div>
-          </div>
-        </FloatingWidget>
-
-        <FloatingWidget className="bottom-32 right-24 animate-float-blob-delay2" delay="0.5s">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-purple-400/80 flex items-center justify-center">
-              <Share2 className="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <div className="text-xs font-semibold text-white">Portal Synced</div>
-              <div className="text-[10px] text-white/60">PF · Bayut · Dubizzle</div>
-            </div>
-          </div>
-        </FloatingWidget>
-
-        {/* Grid pattern overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
           }}
         />
       </div>
 
-      {/* Capsule Nav */}
+      {/* Unified pill nav */}
       <div className="relative z-30 px-4 pt-5">
         <nav
           ref={navRef}
-          className="mx-auto max-w-7xl bg-white/95 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-2xl shadow-black/20 flex items-center justify-between gap-4"
+          className="mx-auto max-w-7xl bg-white rounded-full px-6 py-3 shadow-lg flex items-center justify-between gap-4 border border-slate-200"
         >
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center shadow-lg">
-              <Building2 className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
-            </div>
-            <span className="font-bold text-slate-900 text-lg tracking-tight">vzite</span>
+            <span className="font-black text-slate-900 text-xl tracking-tighter">VZITE</span>
           </a>
 
           {/* Desktop nav items */}
           <div className="hidden lg:flex items-center gap-1">
-            {/* Features */}
             <NavItem label="Features" isOpen={openMenu === "features"} onClick={() => toggle("features")}>
               {openMenu === "features" && (
                 <DropdownPanel wide className="left-0">
@@ -171,7 +130,6 @@ export function HeaderHero() {
               )}
             </NavItem>
 
-            {/* Solutions */}
             <NavItem label="Solutions" isOpen={openMenu === "solutions"} onClick={() => toggle("solutions")}>
               {openMenu === "solutions" && (
                 <DropdownPanel className="left-0">
@@ -187,7 +145,6 @@ export function HeaderHero() {
               )}
             </NavItem>
 
-            {/* Integrations */}
             <NavItem label="Integrations" isOpen={openMenu === "integrations"} onClick={() => toggle("integrations")}>
               {openMenu === "integrations" && (
                 <DropdownPanel wide className="-left-20">
@@ -210,13 +167,11 @@ export function HeaderHero() {
               )}
             </NavItem>
 
-            {/* Mobile App */}
             <a href="#" className="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all">
               <Smartphone className="w-4 h-4" />
               Mobile App
             </a>
 
-            {/* Company */}
             <NavItem label="Company" isOpen={openMenu === "company"} onClick={() => toggle("company")}>
               {openMenu === "company" && (
                 <DropdownPanel className="-left-10">
@@ -240,7 +195,7 @@ export function HeaderHero() {
             </a>
             <a
               href="#"
-              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-teal-500 to-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-1.5 bg-slate-900 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all hover:bg-slate-800"
             >
               Get Free Demo
               <ChevronRight className="w-4 h-4" />
@@ -252,21 +207,21 @@ export function HeaderHero() {
             className="lg:hidden p-2 rounded-full hover:bg-slate-100 transition-colors"
             onClick={() => setMobileOpen(v => !v)}
           >
-            {mobileOpen ? <X className="w-5 h-5 text-slate-700" /> : <Menu className="w-5 h-5 text-slate-700" />}
+            {mobileOpen ? <X className="w-5 h-5 text-slate-800" /> : <Menu className="w-5 h-5 text-slate-800" />}
           </button>
         </nav>
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden mx-auto max-w-7xl mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-4 animate-fade-up">
+          <div className="lg:hidden mx-auto max-w-7xl mt-2 bg-white rounded-2xl shadow-2xl p-4 animate-fade-up border border-slate-200">
             <div className="flex flex-col gap-1">
               {["Features", "Solutions", "Integrations", "Mobile App", "Company"].map(item => (
-                <a key={item} href="#" className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-xl transition-colors">{item}</a>
+                <a key={item} href="#" className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors">{item}</a>
               ))}
               <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
-                <a href="#" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-xl transition-colors text-center">Login</a>
-                <a href="#" className="flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 text-white text-sm font-semibold px-5 py-3 rounded-xl">
-                  Get Free Demo <ChevronRight className="w-4 h-4" />
+                <a href="#" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</a>
+                <a href="#" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
+                  Get Free Demo
                 </a>
               </div>
             </div>
@@ -275,32 +230,25 @@ export function HeaderHero() {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-16 md:py-24">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-12 md:py-16">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div className="animate-fade-up inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold px-4 py-2 rounded-full mb-8 shadow-lg">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          {/* Subtitle above headline */}
+          <div className="animate-fade-up flex items-center justify-center gap-2 text-slate-400 text-sm font-medium mb-6">
             UAE's Most Powerful Real Estate CRM
-            <span className="bg-white/20 px-2 py-0.5 rounded-full text-[10px]">2025</span>
           </div>
 
-          {/* Main headline */}
-          <h1 className="animate-fade-up-delay text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight mb-8">
-            The Real Estate CRM{" "}
-            <span className="shimmer-text">Built for UAE</span>
+          {/* Main headline with typewriter */}
+          <h1 className="animate-fade-up-delay text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.08] tracking-tight mb-6">
+            The Real Estate CRM Built for UAE
             <br />
             Brokerages with{" "}
-            <span className="relative">
-              <span className="shimmer-text">Native Meta</span>
-              <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 300 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 3C50 0.5 100 5.5 150 3C200 0.5 250 5.5 300 3" stroke="rgba(110,231,183,0.7)" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
-            </span>{" "}
-            Integration
+            <span className="inline-flex items-center">
+              <TypewriterEffectSmooth words={words} cursorClassName="bg-slate-900" />
+            </span>
           </h1>
 
           {/* Subtext */}
-          <p className="animate-fade-up-delay2 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="animate-fade-up-delay2 text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
             Instant lead distribution from Meta, automatic syncing with Property Finder, Bayut & Dubizzle, and advanced tools built for managing international investors in the UAE.
           </p>
 
@@ -308,17 +256,17 @@ export function HeaderHero() {
           <div className="animate-fade-up-delay2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#"
-              className="group inline-flex items-center gap-2.5 bg-white text-slate-900 font-bold text-base px-8 py-4 rounded-full shadow-2xl shadow-black/20 hover:shadow-black/30 hover:scale-[1.03] transition-all"
+              className="group inline-flex items-center gap-2.5 bg-slate-900 text-white font-bold text-base px-8 py-4 rounded-full hover:bg-slate-800 hover:scale-[1.03] transition-all"
             >
               Start Free Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#"
-              className="inline-flex items-center gap-2.5 text-white/80 hover:text-white font-semibold text-base transition-colors"
+              className="inline-flex items-center gap-2.5 text-slate-500 hover:text-slate-800 font-semibold text-base transition-colors"
             >
-              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20">
-                <div className="w-0 h-0 border-l-[10px] border-l-white border-y-[6px] border-y-transparent ml-0.5" />
+              <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
+                <div className="w-0 h-0 border-l-[10px] border-l-slate-700 border-y-[6px] border-y-transparent ml-0.5" />
               </div>
               Watch Product Tour
             </a>
@@ -333,36 +281,18 @@ export function HeaderHero() {
               { value: "4.9★", label: "Average Rating" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-white animate-count-pulse">{stat.value}</div>
-                <div className="text-xs text-white/50 mt-0.5 font-medium uppercase tracking-wider">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-black text-slate-900">{stat.value}</div>
+                <div className="text-xs text-slate-400 mt-0.5 font-medium uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z" fill="white" fillOpacity="1" />
-        </svg>
       </div>
     </section>
   )
 }
 
 // Sub-components
-
-function FloatingWidget({ children, className, delay }: { children: React.ReactNode; className?: string; delay?: string }) {
-  return (
-    <div
-      className={cn("absolute glass-card rounded-2xl px-3.5 py-2.5 shadow-xl shadow-black/10 hidden lg:block", className)}
-      style={{ animationDelay: delay }}
-    >
-      {children}
-    </div>
-  )
-}
 
 function NavItem({
   label,

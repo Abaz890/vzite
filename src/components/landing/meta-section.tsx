@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
-import { TrendingUp, ArrowUpRight, CheckCircle2, Target, Zap, Shield, Users } from "lucide-react"
+import { TrendingUp, ArrowUpRight, CheckCircle2, Target, Zap, Shield, Users, BarChart3, DollarSign } from "lucide-react"
 
-// SVG brand icons
 const FbIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className ?? "w-3.5 h-3.5 text-blue-400"}>
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12.07h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12.07h2.773l-.443 2.89h-2.33v6.988C20.343 21.128 24 16.991 24 12.073z"/>
@@ -30,22 +29,23 @@ export function MetaSection() {
   }, [])
 
   return (
-    <section className="py-20 md:py-28 bg-white overflow-hidden">
+    <section className="py-12 md:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section badge */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-4 border border-blue-100">
-            <FbIcon className="w-3.5 h-3.5 text-blue-700" />
-            Meta Integration Engine
-          </div>
+          <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-4">Meta Integration Engine</p>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] mb-4">
+            Turn Ad Spend Into Revenue
+          </h2>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Vzite's native Meta integration closes the attribution loop — your campaigns learn from closed deals, not just clicks.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: interactive UI visualization */}
           <div className="relative">
-            {/* Main card */}
             <div className="bg-slate-900 rounded-3xl p-6 shadow-2xl">
-              {/* Header */}
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center">
@@ -59,7 +59,6 @@ export function MetaSection() {
                 </div>
               </div>
 
-              {/* Live lead feed */}
               <div className="space-y-2.5 mb-5">
                 {leads.map((lead, i) => (
                   <div
@@ -90,7 +89,6 @@ export function MetaSection() {
                 ))}
               </div>
 
-              {/* Conversions API row */}
               <div className="flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3">
                 <Shield className="w-5 h-5 text-blue-400 flex-shrink-0" />
                 <div>
@@ -101,7 +99,6 @@ export function MetaSection() {
               </div>
             </div>
 
-            {/* Floating stat cards */}
             <div className="absolute -right-4 top-8 bg-white rounded-2xl shadow-xl p-4 border border-slate-100 hidden md:block">
               <div className="text-xs text-slate-400 mb-1">Cost Per Lead</div>
               <div className="text-2xl font-black text-emerald-600">AED 12</div>
@@ -121,20 +118,7 @@ export function MetaSection() {
 
           {/* Right: marketing copy */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
-              Stop Wasting{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
-                Ad Spend.
-              </span>
-              <br />
-              Control Your ROI.
-            </h2>
-
-            <p className="text-lg text-slate-500 leading-relaxed mb-8">
-              Vzite's native Meta integration doesn't just capture leads — it closes the attribution loop, so your campaigns learn from closed deals, not just clicks.
-            </p>
-
-            <div className="space-y-5 mb-10">
+            <div className="space-y-6 mb-10">
               {[
                 {
                   icon: Zap,
@@ -154,6 +138,12 @@ export function MetaSection() {
                   desc: "Automatically sync your best-performing buyer profiles back to Meta to generate high-intent lookalike audiences for the next campaign.",
                   color: "bg-violet-50 text-violet-600",
                 },
+                {
+                  icon: BarChart3,
+                  title: "Real-Time Attribution",
+                  desc: "See exactly which campaigns, ads, and audiences drive closed deals. Close the loop from impression to commission.",
+                  color: "bg-teal-50 text-teal-600",
+                },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${item.color}`}>
@@ -167,13 +157,22 @@ export function MetaSection() {
               ))}
             </div>
 
-            <a
-              href="#"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-bold text-sm px-7 py-4 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all"
-            >
-              See Meta Integration in Action
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#"
+                className="inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-7 py-4 rounded-full transition-all"
+              >
+                See Meta Integration in Action
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 font-semibold text-sm px-7 py-4 rounded-full hover:bg-slate-50 transition-all"
+              >
+                <DollarSign className="w-4 h-4" />
+                Calculate Your ROI
+              </a>
+            </div>
           </div>
         </div>
       </div>

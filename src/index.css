@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -10,11 +12,6 @@
   0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
   33% { transform: translateY(-22px) scale(1.04) rotate(2deg); }
   66% { transform: translateY(-10px) scale(0.97) rotate(-1deg); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
 }
 
 @keyframes fade-up {
@@ -35,11 +32,6 @@
 @keyframes slide-right {
   from { opacity: 0; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes count-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
 }
 
 .animate-infinite-scroll {
@@ -77,33 +69,13 @@
 .animate-slide-right {
   animation: slide-right 0.6s ease-out forwards;
 }
-.animate-count-pulse {
-  animation: count-pulse 2s ease-in-out infinite;
-}
-
 .ticker-pause:hover .animate-infinite-scroll {
   animation-play-state: paused;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
 
-.hero-gradient {
-  background: linear-gradient(135deg, #0f766e 0%, #059669 35%, #1e3a5f 70%, #1e1b4b 100%);
-}
 
-.shimmer-text {
-  background: linear-gradient(90deg, #fff 0%, #a5f3fc 25%, #6ee7b7 50%, #a5f3fc 75%, #fff 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-}
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -252,5 +224,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   }
 }
