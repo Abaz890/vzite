@@ -71,7 +71,7 @@ const words = [
   { text: "Integration", className: "text-blue-500" },
 ]
 
-export function HeaderHero() {
+export function HeaderHero({ onLoginClick }: { onLoginClick?: () => void }) {
   const [openMenu, setOpenMenu] = useState<MenuKey>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
@@ -143,9 +143,9 @@ export function HeaderHero() {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
-            <a href="#" className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
+            <button onClick={onLoginClick} className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
               Login
-            </a>
+            </button>
             <a
               href="#"
               className="inline-flex items-center gap-1.5 bg-slate-900 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all hover:bg-slate-800"
@@ -234,7 +234,7 @@ export function HeaderHero() {
                 <a key={item} href="#" className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors">{item}</a>
               ))}
               <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
-                <a href="#" className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</a>
+                <button onClick={onLoginClick} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
                 <a href="#" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
                   Get Free Demo
                 </a>
