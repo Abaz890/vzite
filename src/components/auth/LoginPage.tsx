@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react"
 import { User, Lock, ArrowRight } from "lucide-react"
 
-export function LoginPage({ onBack }: { onBack: () => void }) {
+export function LoginPage({ onBack: _onBack }: { onBack: () => void }) {
   const userRef = useRef<HTMLInputElement>(null)
   const passRef = useRef<HTMLInputElement>(null)
   const [userFocus, setUserFocus] = useState(false)
