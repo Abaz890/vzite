@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Menu, X, ChevronRight, UserCheck, Target, Info, BookOpen, Mail, Headphones, Globe } from "lucide-react"
+import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Menu, X, ChevronRight, UserCheck, Info, BookOpen, Mail, Headphones, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type MenuKey = "features" | "solutions" | "integrations" | "company" | null
