@@ -1,12 +1,33 @@
 import { Users, Target, Award, Globe } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 
 const teamMembers = [
-  { name: "Khalid Al-Rashid", role: "CEO & Founder", bio: "15+ years in UAE real estate technology" },
-  { name: "Sarah Chen", role: "CTO", bio: "Former tech lead at Property Finder" },
-  { name: "Omar Hassan", role: "Head of Product", bio: "Built CRM systems for Fortune 500" },
-  { name: "Faiza Mahmoud", role: "Head of Sales", bio: "10+ years in B2B SaaS sales" },
+  {
+    name: "Khalid Al-Rashid",
+    designation: "CEO & Founder",
+    quote: "We built Vzite because the UAE real estate market deserved a CRM that was engineered for its unique dynamics — the international buyers, the off-plan surge, the portal landscape. Everything we ship is guided by that conviction.",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Sarah Chen",
+    designation: "CTO",
+    quote: "The engineering challenge with Vzite is performance at scale — distributing thousands of Meta leads per minute without a single one dropped. That's the kind of problem I moved here to solve.",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Omar Hassan",
+    designation: "Head of Product",
+    quote: "Every feature we release starts from a real conversation with a broker. Not a spreadsheet, not a roadmap template. We spend time on the ground and that changes everything about what we build.",
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Faiza Mahmoud",
+    designation: "Head of Sales",
+    quote: "When a brokerage doubles its lead conversion in 90 days, that's not a sales win — that's a product win. My job is to make sure the right people discover what Vzite can do for them.",
+    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1200&auto=format&fit=crop",
+  },
 ]
 
 const values = [
@@ -121,19 +142,9 @@ export function AboutPage() {
       {/* Team */}
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-12">Leadership Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
-                  {member.name.split(" ").map(n => n[0]).join("")}
-                </div>
-                <div className="font-bold text-slate-900">{member.name}</div>
-                <div className="text-sm text-teal-600 font-medium mt-1">{member.role}</div>
-                <div className="text-xs text-slate-500 mt-2">{member.bio}</div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-4">Meet the Team</h2>
+          <p className="text-center text-slate-500 mb-12">The people building Vzite every day.</p>
+          <AnimatedTestimonials testimonials={teamMembers} autoplay={true} />
         </div>
       </section>
 

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Search, Globe, Phone, Zap, AtSign, Menu, X, ChevronRight, Video, MessageSquare, RadioTower, Layers, Star, UserCheck, Target } from "lucide-react"
+import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Search, Globe, Phone, Zap, AtSign, Menu, X, ChevronRight, Video, MessageSquare, RadioTower, Layers, Star, UserCheck, Target, Info, BookOpen, Mail, Headphones } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-type MenuKey = "features" | "solutions" | "integrations" | null
+type MenuKey = "features" | "solutions" | "integrations" | "company" | null
 
 interface DropdownItem {
   icon: React.ElementType
@@ -56,6 +56,20 @@ const integrationsItems: DropdownItem[] = [
   { icon: Phone, label: "CallGear", id: "callgear", color: "text-indigo-500" },
   { icon: MessageSquare, label: "SleekFlow", id: "sleekflow", color: "text-violet-500" },
   { icon: Layers, label: "Liana", id: "liana", color: "text-rose-500" },
+]
+
+interface CompanyItem {
+  icon: React.ElementType
+  label: string
+  to: string
+  desc: string
+}
+
+const companyItems: CompanyItem[] = [
+  { icon: Info, label: "About Us", to: "/about", desc: "Our story & mission" },
+  { icon: BookOpen, label: "Blog", to: "/blog", desc: "Insights & updates" },
+  { icon: Mail, label: "Contact Us", to: "/contact", desc: "Get in touch" },
+  { icon: Headphones, label: "Customer Support", to: "/support", desc: "Help & documentation" },
 ]
 
 interface NavigationProps {
@@ -129,12 +143,16 @@ export function Navigation({ onLoginClick }: NavigationProps) {
           >
             Mobile
           </Link>
-          <Link
-            to="/about"
-            className="px-3 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
+          <button
+            onClick={() => toggle("company")}
+            className={cn(
+              "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all",
+              openMenu === "company" ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+            )}
           >
-            About
-          </Link>
+            Company
+            <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", openMenu === "company" && "rotate-180")} />
+          </button>
         </div>
 
         <div className="hidden lg:flex items-center gap-2">
@@ -230,6 +248,30 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                 </div>
               )}
 
+              {openMenu === "company" && (
+                <div className="p-6">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Company</p>
+                  <div className="grid grid-cols-4 gap-1">
+                    {companyItems.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
         </div>
@@ -248,34 +290,7 @@ export function Navigation({ onLoginClick }: NavigationProps) {
             >
               Mobile
             </Link>
-            <Link
-              to="/about"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="/blog"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              to="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
-              to="/support"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
-            >
-              Support
-            </Link>
+            <MobileCompanyNavItem items={companyItems} onClose={() => setMobileOpen(false)} />
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
               <button onClick={() => { onLoginClick?.(); setMobileOpen(false) }} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
               <a href="#" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
@@ -283,6 +298,36 @@ export function Navigation({ onLoginClick }: NavigationProps) {
               </a>
             </div>
           </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function MobileCompanyNavItem({ items, onClose }: { items: CompanyItem[]; onClose: () => void }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+      >
+        Company
+        <ChevronDown className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
+      </button>
+      {isOpen && (
+        <div className="pl-4 mt-1 space-y-1">
+          {items.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={onClose}
+              className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       )}
     </div>
