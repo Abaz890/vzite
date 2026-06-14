@@ -1,84 +1,62 @@
 import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import {
-  ChevronDown, Users, Home, Building2, MapPin,
-  Calendar, Database, GitBranch, TrendingUp, Settings,
-  SlidersHorizontal, RotateCcw, Briefcase, Megaphone,
-  Shield, DollarSign, Monitor, Search, Globe, Phone, Mail,
-  BookOpen, Headphones, Zap, AtSign,
-  Menu, X, ChevronRight, Video, MessageSquare, RadioTower, Layers,
-  Star, FileText, UserCheck, Target
-} from "lucide-react"
+import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Search, Globe, Phone, Zap, AtSign, Menu, X, ChevronRight, Video, MessageSquare, RadioTower, Layers, Star, UserCheck, Target } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-type MenuKey = "features" | "solutions" | "integrations" | "company" | null
+type MenuKey = "features" | "solutions" | "integrations" | null
 
 interface DropdownItem {
   icon: React.ElementType
   label: string
+  id: string
   desc?: string
   color?: string
 }
 
 const featuresItems: DropdownItem[] = [
-  { icon: Users, label: "Lead Management", desc: "Capture, qualify & distribute" },
-  { icon: Home, label: "Listing Management", desc: "Sync across all portals" },
-  { icon: UserCheck, label: "Owners Management", desc: "Build lasting relationships" },
-  { icon: Building2, label: "Off-Plan Projects", desc: "Catalog & pitch instantly" },
-  { icon: MapPin, label: "Map View", desc: "Geo-visual property search" },
-  { icon: DollarSign, label: "Transactions & Commissions", desc: "Full deal lifecycle" },
-  { icon: Calendar, label: "Calendar", desc: "Smart scheduling & reminders" },
-  { icon: Database, label: "Vzite Database", desc: "Proprietary property data" },
-  { icon: Shield, label: "Database Management", desc: "Clean, structured records" },
-  { icon: GitBranch, label: "Workflow & Approvals", desc: "Automate any process" },
-  { icon: TrendingUp, label: "KPI & Insights", desc: "Real-time performance data" },
-  { icon: SlidersHorizontal, label: "Custom Fields", desc: "Tailor your pipeline" },
-  { icon: RotateCcw, label: "Lead Rotation", desc: "Intelligent auto-routing" },
+  { icon: Users, label: "Lead Management", id: "lead-management", desc: "Capture, qualify & distribute" },
+  { icon: Home, label: "Listing Management", id: "listing-management", desc: "Sync across all portals" },
+  { icon: UserCheck, label: "Owners Management", id: "owners-management", desc: "Build lasting relationships" },
+  { icon: Building2, label: "Off-Plan Projects", id: "offplan-projects", desc: "Catalog & pitch instantly" },
+  { icon: MapPin, label: "Map View", id: "map-view", desc: "Geo-visual property search" },
+  { icon: DollarSign, label: "Transactions & Commissions", id: "transactions-commissions", desc: "Full deal lifecycle" },
+  { icon: Calendar, label: "Calendar", id: "calendar", desc: "Smart scheduling & reminders" },
+  { icon: Database, label: "Vzite Database", id: "vzite-database", desc: "Proprietary property data" },
+  { icon: Shield, label: "Database Management", id: "database-management", desc: "Clean, structured records" },
+  { icon: GitBranch, label: "Workflow & Approvals", id: "workflow-approvals", desc: "Automate any process" },
+  { icon: TrendingUp, label: "KPI & Insights", id: "kpi-insights", desc: "Real-time performance data" },
+  { icon: SlidersHorizontal, label: "Custom Fields", id: "custom-fields", desc: "Tailor your pipeline" },
+  { icon: RotateCcw, label: "Lead Rotation", id: "lead-rotation", desc: "Intelligent auto-routing" },
 ]
 
 const solutionsItems: DropdownItem[] = [
-  { icon: Briefcase, label: "Management", desc: "Full organizational control" },
-  { icon: TrendingUp, label: "Sales", desc: "Close deals faster" },
-  { icon: Megaphone, label: "Marketing", desc: "Smarter campaign tools" },
-  { icon: Settings, label: "Admins & Operations", desc: "Streamline back-office" },
-  { icon: DollarSign, label: "Accounts", desc: "Financial transparency" },
-  { icon: Monitor, label: "IT", desc: "Secure infrastructure" },
+  { icon: Briefcase, label: "Management", id: "management", desc: "Full organizational control" },
+  { icon: TrendingUp, label: "Sales", id: "sales", desc: "Close deals faster" },
+  { icon: Megaphone, label: "Marketing", id: "marketing", desc: "Smarter campaign tools" },
+  { icon: Settings, label: "Admins & Operations", id: "admins-operations", desc: "Streamline back-office" },
+  { icon: DollarSign, label: "Accounts", id: "accounts", desc: "Financial transparency" },
+  { icon: Monitor, label: "IT", id: "it", desc: "Secure infrastructure" },
 ]
 
 const integrationsItems: DropdownItem[] = [
-  { icon: Search, label: "Property Finder", color: "text-red-500" },
-  { icon: Home, label: "Bayut", color: "text-orange-500" },
-  { icon: Building2, label: "Dubizzle", color: "text-green-500" },
-  { icon: Star, label: "JamesEdition", color: "text-yellow-500" },
-  { icon: Target, label: "Meta Ads", color: "text-blue-500" },
-  { icon: Target, label: "Google Ads", color: "text-red-400" },
-  { icon: Calendar, label: "Google Calendar", color: "text-blue-400" },
-  { icon: Video, label: "TikTok", color: "text-pink-500" },
-  { icon: Zap, label: "Zapier", color: "text-orange-400" },
-  { icon: AtSign, label: "LinkedIn", color: "text-blue-600" },
-  { icon: Globe, label: "Websites & Landing Pages", color: "text-teal-500" },
-  { icon: MessageSquare, label: "ManyChat", color: "text-purple-500" },
-  { icon: RadioTower, label: "Property Booster", color: "text-emerald-500" },
-  { icon: Phone, label: "BrightCall", color: "text-cyan-500" },
-  { icon: Phone, label: "CallGear", color: "text-indigo-500" },
-  { icon: MessageSquare, label: "SleekFlow", color: "text-violet-500" },
-  { icon: Layers, label: "Liana", color: "text-rose-500" },
+  { icon: Search, label: "Property Finder", id: "property-finder", color: "text-red-500" },
+  { icon: Home, label: "Bayut", id: "bayut", color: "text-orange-500" },
+  { icon: Building2, label: "Dubizzle", id: "dubizzle", color: "text-green-500" },
+  { icon: Star, label: "JamesEdition", id: "jamesedition", color: "text-yellow-500" },
+  { icon: Target, label: "Meta Ads", id: "meta-ads", color: "text-blue-500" },
+  { icon: Target, label: "Google Ads", id: "google-ads", color: "text-red-400" },
+  { icon: Calendar, label: "Google Calendar", id: "google-calendar", color: "text-blue-400" },
+  { icon: Video, label: "TikTok", id: "tiktok", color: "text-pink-500" },
+  { icon: Zap, label: "Zapier", id: "zapier", color: "text-orange-400" },
+  { icon: AtSign, label: "LinkedIn", id: "linkedin", color: "text-blue-600" },
+  { icon: Globe, label: "Websites & Landing Pages", id: "websites-landing-pages", color: "text-teal-500" },
+  { icon: MessageSquare, label: "ManyChat", id: "manychat", color: "text-purple-500" },
+  { icon: RadioTower, label: "Property Booster", id: "property-booster", color: "text-emerald-500" },
+  { icon: Phone, label: "BrightCall", id: "brightcall", color: "text-cyan-500" },
+  { icon: Phone, label: "CallGear", id: "callgear", color: "text-indigo-500" },
+  { icon: MessageSquare, label: "SleekFlow", id: "sleekflow", color: "text-violet-500" },
+  { icon: Layers, label: "Liana", id: "liana", color: "text-rose-500" },
 ]
-
-const companyItems: DropdownItem[] = [
-  { icon: BookOpen, label: "About Us", desc: "Our story & mission" },
-  { icon: FileText, label: "Blog", desc: "Insights & resources" },
-  { icon: Mail, label: "Contact Us", desc: "Get in touch" },
-  { icon: Headphones, label: "Customer Support", desc: "We're here to help" },
-]
-
-function toSlug(label: string): string {
-  return label
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
-}
 
 interface NavigationProps {
   onLoginClick?: () => void
@@ -151,16 +129,12 @@ export function Navigation({ onLoginClick }: NavigationProps) {
           >
             Mobile
           </Link>
-          <button
-            onClick={() => toggle("company")}
-            className={cn(
-              "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all",
-              openMenu === "company" ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-            )}
+          <Link
+            to="/about"
+            className="px-3 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
           >
-            Company
-            <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", openMenu === "company" && "rotate-180")} />
-          </button>
+            About
+          </Link>
         </div>
 
         <div className="hidden lg:flex items-center gap-2">
@@ -193,25 +167,22 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                 <div className="p-6">
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Platform Features</p>
                   <div className="grid grid-cols-4 gap-1">
-                    {featuresItems.map((item) => {
-                      const Icon = item.icon
-                      return (
-                        <Link
-                          key={item.label}
-                          to={`/features/${toSlug(item.label)}`}
-                          onClick={() => setOpenMenu(null)}
-                          className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                        >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-200 transition-colors">
-                            <Icon className="w-3.5 h-3.5 text-slate-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                            {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
-                          </div>
-                        </Link>
-                      )
-                    })}
+                    {featuresItems.map((item) => (
+                      <Link
+                        key={item.id}
+                        to={`/features/${item.id}`}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -220,25 +191,22 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                 <div className="p-6">
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Built For Every Team</p>
                   <div className="grid grid-cols-3 gap-1">
-                    {solutionsItems.map((item) => {
-                      const Icon = item.icon
-                      return (
-                        <Link
-                          key={item.label}
-                          to={`/solutions/${toSlug(item.label)}`}
-                          onClick={() => setOpenMenu(null)}
-                          className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                        >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-200 transition-colors">
-                            <Icon className="w-3.5 h-3.5 text-slate-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                            {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
-                          </div>
-                        </Link>
-                      )
-                    })}
+                    {solutionsItems.map((item) => (
+                      <Link
+                        key={item.id}
+                        to={`/solutions/${item.id}`}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -247,46 +215,17 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                 <div className="p-6">
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Connected Platforms</p>
                   <div className="grid grid-cols-6 gap-1">
-                    {integrationsItems.map((item) => {
-                      const Icon = item.icon
-                      return (
-                        <Link
-                          key={item.label}
-                          to={`/integrations/${toSlug(item.label)}`}
-                          onClick={() => setOpenMenu(null)}
-                          className="flex items-center gap-2 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                        >
-                          <Icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
-                          <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium truncate">{item.label}</span>
-                        </Link>
-                      )
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {openMenu === "company" && (
-                <div className="p-6">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Company</p>
-                  <div className="grid grid-cols-4 gap-1">
-                    {companyItems.map((item) => {
-                      const Icon = item.icon
-                      return (
-                        <a
-                          key={item.label}
-                          href="#"
-                          className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                        >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-slate-200 transition-colors">
-                            <Icon className="w-3.5 h-3.5 text-slate-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                            {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
-                          </div>
-                        </a>
-                      )
-                    })}
+                    {integrationsItems.map((item) => (
+                      <Link
+                        key={item.id}
+                        to={`/integrations/${item.id}`}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                      >
+                        <item.icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
+                        <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium truncate">{item.label}</span>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -310,11 +249,32 @@ export function Navigation({ onLoginClick }: NavigationProps) {
               Mobile
             </Link>
             <Link
-              to="/company"
+              to="/about"
               onClick={() => setMobileOpen(false)}
               className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
             >
-              Company
+              About
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/support"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+            >
+              Support
             </Link>
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
               <button onClick={() => { onLoginClick?.(); setMobileOpen(false) }} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
@@ -343,20 +303,16 @@ function MobileNavItem({ label, items, category, onClose }: { label: string; ite
       </button>
       {isOpen && (
         <div className="pl-4 mt-1 space-y-1">
-          {items.map((item) => {
-            const Icon = item.icon
-            return (
-              <Link
-                key={item.label}
-                to={`/${category}/${toSlug(item.label)}`}
-                onClick={onClose}
-                className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
-              >
-                <Icon className={cn("w-4 h-4", item.color || "text-slate-500")} />
-                {item.label}
-              </Link>
-            )
-          })}
+          {items.map((item) => (
+            <Link
+              key={item.id}
+              to={`/${category}/${item.id}`}
+              onClick={onClose}
+              className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       )}
     </div>

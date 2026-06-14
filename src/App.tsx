@@ -9,7 +9,11 @@ import { Footer } from "@/components/landing/footer"
 import { LoginPage } from "@/components/auth/LoginPage"
 import { FeatureDetailPage } from "@/components/pages/FeatureDetailPage"
 import { MobilePage } from "@/components/pages/MobilePage"
-import { getPageById, getPagesByCategory } from "@/lib/page-data"
+import { AboutPage } from "@/components/pages/AboutPage"
+import { BlogPage } from "@/components/pages/BlogPage"
+import { ContactPage } from "@/components/pages/ContactPage"
+import { SupportPage } from "@/components/pages/SupportPage"
+import { getPageById } from "@/lib/page-data"
 
 function LandingPage() {
   const navigate = useNavigate()
@@ -33,7 +37,6 @@ function FeatureDetailRoute() {
   const navigate = useNavigate()
   const location = useLocation()
   const pathParts = location.pathname.split("/")
-  const category = pathParts[1] as "features" | "solutions" | "integrations"
   const pageId = pathParts[2]
 
   const page = getPageById(pageId)
@@ -42,9 +45,7 @@ function FeatureDetailRoute() {
     return null
   }
 
-  const relatedPages = getPagesByCategory(category).filter(p => p.id !== pageId)
-
-  return <FeatureDetailPage page={page} relatedPages={relatedPages} />
+  return <FeatureDetailPage page={page} />
 }
 
 function MobilePageRoute() {
@@ -63,6 +64,10 @@ export function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPageRoute />} />
         <Route path="/mobile" element={<MobilePageRoute />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/support" element={<SupportPage />} />
         <Route path="/features/:id" element={<FeatureDetailRoute />} />
         <Route path="/solutions/:id" element={<FeatureDetailRoute />} />
         <Route path="/integrations/:id" element={<FeatureDetailRoute />} />

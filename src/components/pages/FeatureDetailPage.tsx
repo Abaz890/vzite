@@ -1,17 +1,13 @@
 import { ArrowRight, Check } from "lucide-react"
-import { Link } from "react-router-dom"
-import { cn } from "@/lib/utils"
 import type { PageData } from "@/lib/page-data"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/landing/footer"
 
 interface FeatureDetailPageProps {
   page: PageData
-  relatedPages: PageData[]
 }
 
-export function FeatureDetailPage({ page, relatedPages }: FeatureDetailPageProps) {
-  const Icon = page.icon
-
+export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Subtle grid overlay */}
@@ -31,12 +27,6 @@ export function FeatureDetailPage({ page, relatedPages }: FeatureDetailPageProps
       {/* Hero Section */}
       <section className="relative z-10 pt-8 pb-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Category Badge */}
-          <div className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
-            <Icon className={cn("w-4 h-4", page.color || "text-slate-600")} />
-            {page.category === "integrations" ? "Integration" : page.category.slice(0, -1)}
-          </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
             {page.heroTitle || page.label}
@@ -92,8 +82,8 @@ export function FeatureDetailPage({ page, relatedPages }: FeatureDetailPageProps
                       <div className="text-lg text-slate-600">{section.stat.label}</div>
                     </div>
                   ) : (
-                    <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-                      <Icon className={cn("w-16 h-16", page.color || "text-slate-400")} />
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border border-slate-200">
+                      <div className="w-16 h-16 bg-slate-200 rounded-2xl" />
                     </div>
                   )}
                 </div>
@@ -104,72 +94,36 @@ export function FeatureDetailPage({ page, relatedPages }: FeatureDetailPageProps
       </section>
 
       {/* CTA Section */}
-      {(page.cta?.primary || page.cta?.secondary) && (
-        <section className="relative z-10 pb-20 px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-slate-900 rounded-3xl p-10 md:p-14">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Try {page.label} Today
-              </h2>
-              <p className="text-slate-400 mb-8 text-lg">
-                See how {page.label.toLowerCase()} fits into your workflow with a personalized demo.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                {page.cta?.primary && (
-                  <a
-                    href="#"
-                    className="group inline-flex items-center gap-2.5 bg-white text-slate-900 font-bold text-base px-8 py-4 rounded-full hover:bg-slate-100 transition-all"
-                  >
-                    {page.cta.primary}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                )}
-                {page.cta?.secondary && (
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-2 text-slate-400 hover:text-white font-semibold text-base transition-colors"
-                  >
-                    {page.cta.secondary}
-                  </a>
-                )}
-              </div>
+      <section className="relative z-10 pb-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="bg-slate-900 rounded-3xl p-10 md:p-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Get Started with {page.label}
+            </h2>
+            <p className="text-slate-400 mb-8 text-lg">
+              Book a demo to see {page.label.toLowerCase()} in action.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#"
+                className="group inline-flex items-center gap-2.5 bg-white text-slate-900 font-bold text-base px-8 py-4 rounded-full hover:bg-slate-100 transition-all"
+              >
+                Book Your Demo
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-white font-semibold text-base transition-colors"
+              >
+                View Pricing
+              </a>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Related Pages */}
-      {relatedPages.length > 0 && (
-        <section className="relative z-10 pb-20 px-4 border-t border-slate-100">
-          <div className="max-w-7xl mx-auto pt-16">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-bold text-slate-900">
-                More {page.category.charAt(0).toUpperCase() + page.category.slice(1)}
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {relatedPages.slice(0, 3).map((relatedPage) => {
-                const RelatedIcon = relatedPage.icon
-                return (
-                  <Link
-                    key={relatedPage.id}
-                    to={`/${relatedPage.category}/${relatedPage.id}`}
-                    className="group bg-white rounded-2xl p-6 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
-                      <RelatedIcon className={cn("w-5 h-5", relatedPage.color || "text-slate-600")} />
-                    </div>
-                    <h4 className="font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">
-                      {relatedPage.label}
-                    </h4>
-                    <p className="text-sm text-slate-500">{relatedPage.desc}</p>
-                  </Link>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

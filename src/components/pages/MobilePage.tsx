@@ -1,5 +1,6 @@
-import { ArrowRight, Smartphone, QrCode, ExternalLink } from "lucide-react"
+import { ArrowRight, Smartphone, ExternalLink } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/landing/footer"
 
 export function MobilePage() {
   return (
@@ -97,33 +98,67 @@ export function MobilePage() {
                 </div>
               </div>
 
-              {/* QR Code */}
-              <div className="flex flex-col items-center lg:items-end">
-                <div className="bg-white rounded-2xl p-6 shadow-2xl">
-                  <div className="w-44 h-44 bg-slate-100 rounded-xl flex items-center justify-center">
-                    <div className="w-36 h-36 bg-slate-900 rounded-lg relative">
-                      {/* Simplified QR code representation */}
-                      <div className="absolute inset-3 grid grid-cols-7 gap-0.5">
-                        {Array.from({ length: 49 }).map((_, i) => (
-                          <div
-                            key={i}
-                            className={cn(
-                              "rounded-sm",
-                              // Corner squares
-                              (i < 9 || i > 39 && i < 49 || i % 7 === 0 || i % 7 === 6 || i < 7 || (i >= 42 && i < 49)) ? "bg-white" :
-                              // Random pattern
-                              Math.random() > 0.5 ? "bg-white" : "bg-transparent"
-                            )}
-                          />
-                        ))}
+              {/* Phone Mockup */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative">
+                  {/* Phone frame */}
+                  <div className="relative w-[280px] h-[560px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl">
+                    {/* Screen */}
+                    <div className="w-full h-full bg-white rounded-[2.25rem] overflow-hidden relative">
+                      {/* App header */}
+                      <div className="bg-teal-600 px-4 py-3 flex items-center justify-between">
+                        <div className="text-white font-bold text-sm">Vzite</div>
+                        <div className="flex gap-1.5">
+                          <div className="w-2 h-2 bg-white/50 rounded-full" />
+                          <div className="w-2 h-2 bg-white/50 rounded-full" />
+                          <div className="w-2 h-2 bg-white/50 rounded-full" />
+                        </div>
                       </div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <QrCode className="w-12 h-12 text-white opacity-30" />
+                      {/* App content */}
+                      <div className="p-4">
+                        {/* Search bar */}
+                        <div className="bg-slate-100 rounded-xl px-3 py-2.5 flex items-center gap-2 mb-4">
+                          <div className="w-4 h-4 bg-slate-300 rounded" />
+                          <div className="text-xs text-slate-400">Search leads...</div>
+                        </div>
+                        {/* Leads list */}
+                        <div className="space-y-3">
+                          {[
+                            { name: "Ahmed Hassan", tag: "Hot Lead", tagColor: "bg-red-100 text-red-600" },
+                            { name: "Sarah Johnson", tag: "New", tagColor: "bg-teal-100 text-teal-600" },
+                            { name: "Mohammed Ali", tag: "Follow-up", tagColor: "bg-amber-100 text-amber-600" },
+                          ].map((lead, i) => (
+                            <div key={i} className="bg-slate-50 rounded-xl p-3 flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 text-xs font-bold">
+                                {lead.name.split(" ").map(n => n[0]).join("")}
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="text-sm font-semibold text-slate-800 truncate">{lead.name}</div>
+                                <div className="text-xs text-slate-400">+971 50 XXX XXXX</div>
+                              </div>
+                              <div className={`text-[10px] font-bold px-2 py-1 rounded-full ${lead.tagColor}`}>
+                                {lead.tag}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        {/* Bottom nav */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 px-4 py-3 flex justify-around">
+                          {[
+                            { label: "Home", active: true },
+                            { label: "Leads", active: false },
+                            { label: "Calendar", active: false },
+                            { label: "More", active: false },
+                          ].map((item, i) => (
+                            <div key={i} className={`text-xs font-medium ${item.active ? "text-teal-600" : "text-slate-400"}`}>
+                              {item.label}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="text-center mt-4">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Scan to Download</p>
+                    {/* Notch */}
+                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-900 rounded-full" />
                   </div>
                 </div>
               </div>
@@ -212,10 +247,9 @@ export function MobilePage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
-}
-
-function cn(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(" ")
 }
