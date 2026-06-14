@@ -14,6 +14,7 @@ export interface PageData {
     description: string
     features?: { title: string; description: string }[]
     stat?: { value: string; label: string }
+    image?: string
   }[]
   cta?: { primary?: string; secondary?: string }
 }

@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const FbIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -26,34 +27,33 @@ const XIcon2 = () => (
 
 const footerLinks = {
   Features: [
-    "Lead Management",
-    "Listing Management",
-    "Owners Management",
-    "Off-Plan Projects",
-    "Map View",
-    "Transactions & Commissions",
-    "Lead Rotation",
-    "KPI & Insights",
+    { label: "Lead Management", to: "/features/lead-management" },
+    { label: "Listing Management", to: "/features/listing-management" },
+    { label: "Owners Management", to: "/features/owners-management" },
+    { label: "Off-Plan Projects", to: "/features/offplan-projects" },
+    { label: "Map View", to: "/features/map-view" },
+    { label: "Transactions & Commissions", to: "/features/transactions-commissions" },
+    { label: "Lead Rotation", to: "/features/lead-rotation" },
+    { label: "KPI & Insights", to: "/features/kpi-insights" },
   ],
   Integrations: [
-    "Property Finder",
-    "Bayut",
-    "Dubizzle",
-    "Meta Ads",
-    "Google Ads",
-    "Zapier",
-    "TikTok",
-    "SleekFlow",
+    { label: "Property Finder", to: "/integrations/property-finder" },
+    { label: "Bayut", to: "/integrations/bayut" },
+    { label: "Dubizzle", to: "/integrations/dubizzle" },
+    { label: "Meta Ads", to: "/integrations/meta-ads" },
+    { label: "Google Ads", to: "/integrations/google-ads" },
+    { label: "Zapier", to: "/integrations/zapier" },
+    { label: "TikTok", to: "/integrations/tiktok" },
+    { label: "SleekFlow", to: "/integrations/sleekflow" },
   ],
   Company: [
-    "About Vzite",
-    "Blog",
-    "Careers",
-    "Contact Us",
-    "Customer Support",
-    "Privacy Policy",
-    "Terms of Service",
-    "Cookie Policy",
+    { label: "About Vzite", to: "/about" },
+    { label: "Blog", to: "/blog" },
+    { label: "Contact Us", to: "/contact" },
+    { label: "Customer Support", to: "/support" },
+    { label: "Privacy Policy", to: "#" },
+    { label: "Terms of Service", to: "#" },
+    { label: "Cookie Policy", to: "#" },
   ],
 }
 
@@ -138,10 +138,10 @@ export function Footer() {
               <div className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-5">{heading}</div>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link to={link.to} className="text-sm text-slate-500 hover:text-slate-900 transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

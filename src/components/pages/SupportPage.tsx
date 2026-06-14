@@ -1,6 +1,7 @@
 import { BookOpen, MessageCircle, Video, Headphones, ChevronRight, Search } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
 
 const helpCategories = [
   {
@@ -63,7 +64,7 @@ export function SupportPage() {
       <section className="relative z-10 pt-16 pb-12 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-            How Can We Help?
+            <TypewriterEffectSmooth words={[{ text: "How Can We Help?", className: "text-slate-900" }]} cursorClassName="bg-teal-500" />
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-8">
             Find answers, learn Vzite inside out, or reach out to our support team.

@@ -2,6 +2,11 @@ import { Users, Target, Award, Globe } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
+
+const aboutWords = [
+  { text: "Building the Future of", className: "text-slate-900" },
+]
 
 const teamMembers = [
   {
@@ -58,7 +63,8 @@ export function AboutPage() {
       <section className="relative z-10 pt-16 pb-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-            Building the Future of<br />UAE Real Estate
+            <TypewriterEffectSmooth words={[{ text: "Building the Future of", className: "text-slate-900" }]} cursorClassName="bg-teal-500" />
+            <br />UAE Real Estate
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
             Vzite was founded in 2021 with a simple mission: give UAE brokers the tools they deserve. Today, we power 500+ brokerages across the Emirates.

@@ -1,7 +1,12 @@
-import { ArrowRight, Check } from "lucide-react"
+import { Check } from "lucide-react"
 import type { PageData } from "@/lib/page-data"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
+
+function sectionImage(page: PageData, idx: number): string {
+  const seed = `${page.id}-${idx}-${page.sections[idx].title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
+  return `https://picsum.photos/seed/${seed}/800/600`
+}
 
 interface FeatureDetailPageProps {
   page: PageData
@@ -72,7 +77,7 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
                   )}
                 </div>
 
-                {/* Stat Card */}
+                {/* Stat Card or Image */}
                 <div className={sectionIdx % 2 === 1 ? "lg:order-1" : ""}>
                   {section.stat ? (
                     <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-8 border border-teal-100">
@@ -82,43 +87,19 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
                       <div className="text-lg text-slate-600">{section.stat.label}</div>
                     </div>
                   ) : (
-                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border border-slate-200">
-                      <div className="w-16 h-16 bg-slate-200 rounded-2xl" />
+                    <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm">
+                      <img
+                        src={section.image || sectionImage(page, sectionIdx)}
+                        alt={section.title}
+                        className="w-full h-72 md:h-96 object-cover"
+                        loading="lazy"
+                      />
                     </div>
                   )}
                 </div>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-slate-900 rounded-3xl p-10 md:p-14">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Get Started with {page.label}
-            </h2>
-            <p className="text-slate-400 mb-8 text-lg">
-              Book a demo to see {page.label.toLowerCase()} in action.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="#"
-                className="group inline-flex items-center gap-2.5 bg-white text-slate-900 font-bold text-base px-8 py-4 rounded-full hover:bg-slate-100 transition-all"
-              >
-                Book Your Demo
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 text-slate-400 hover:text-white font-semibold text-base transition-colors"
-              >
-                View Pricing
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
