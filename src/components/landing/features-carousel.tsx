@@ -1,6 +1,5 @@
 import { useRef } from "react"
-import { Building2, RotateCcw, Zap, Share2, CheckCircle2 } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Building2, RotateCcw, Zap, Share2 } from "lucide-react"
 
 interface CardData {
   id: number
