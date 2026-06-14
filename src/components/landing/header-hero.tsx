@@ -67,9 +67,9 @@ const companyItems = [
 ]
 
 const words = [
-  { text: "Native" },
+  { text: "Native", className: "text-blue-500" },
   { text: "Meta", className: "text-blue-500" },
-  { text: "Integration" },
+  { text: "Integration", className: "text-blue-500" },
 ]
 
 export function HeaderHero() {
@@ -113,19 +113,33 @@ export function HeaderHero() {
 
           {/* Desktop nav items */}
           <div className="hidden lg:flex items-center gap-1">
-            {(["features", "solutions", "integrations", "company"] as MenuKey[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => toggle(key)}
-                className={cn(
-                  "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all capitalize",
-                  openMenu === key ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                )}
-              >
-                {key}
-                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", openMenu === key && "rotate-180")} />
-              </button>
-            ))}
+            {["features", "solutions", "integrations", "mobile", "company"].map((key) => {
+              if (key === "mobile") {
+                return (
+                  <a
+                    key={key}
+                    href="#"
+                    className="px-3 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all capitalize"
+                  >
+                    {key}
+                  </a>
+                )
+              }
+              const menuKey = key as MenuKey
+              return (
+                <button
+                  key={key}
+                  onClick={() => toggle(menuKey)}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all capitalize",
+                    openMenu === menuKey ? "bg-slate-100 text-slate-900" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                  )}
+                >
+                  {key}
+                  <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", openMenu === menuKey && "rotate-180")} />
+                </button>
+              )
+            })}
           </div>
 
           {/* Right actions */}
@@ -217,7 +231,7 @@ export function HeaderHero() {
         {mobileOpen && (
           <div className="lg:hidden mx-auto max-w-7xl mt-2 bg-white rounded-2xl shadow-2xl p-4 animate-fade-up border border-slate-200">
             <div className="flex flex-col gap-1">
-              {["Features", "Solutions", "Integrations", "Company"].map(item => (
+              {["Features", "Solutions", "Integrations", "Mobile", "Company"].map(item => (
                 <a key={item} href="#" className="px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors">{item}</a>
               ))}
               <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
@@ -235,7 +249,7 @@ export function HeaderHero() {
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-12 md:py-16">
         <div className="max-w-5xl mx-auto text-center">
           <div className="animate-fade-up flex items-center justify-center gap-2 text-slate-400 text-sm font-medium mb-6">
-            UAE's Most Powerful Real Estate CRM
+            Most Powerful Real Estate CRM
           </div>
 
           <h1 className="animate-fade-up-delay text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.08] tracking-tight mb-6">

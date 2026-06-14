@@ -20,9 +20,9 @@ export function BentoSection() {
         </div>
 
         {/* Compare Slider */}
-        <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
           <ReactCompareSlider
-            style={{ width: "100%", height: "520px" }}
+            style={{ width: "100%", height: "420px" }}
             handle={
               <div className="flex flex-col items-center gap-0 h-full justify-center select-none">
                 <div className="w-0.5 flex-1 bg-white/80" />
@@ -52,7 +52,7 @@ export function BentoSection() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           {[
             { icon: Clock, value: "< 90s", sub: "Average lead response" },
             { icon: Zap, value: "17+", sub: "Connected platforms" },

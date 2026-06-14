@@ -59,9 +59,9 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-white text-slate-900 border-t border-slate-100">
+    <footer className="bg-white text-slate-900 border-t border-slate-100 relative overflow-hidden">
       {/* CTA Banner */}
-      <div className="border-b border-slate-100">
+      <div className="border-b border-slate-100 relative z-10">
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -100,7 +100,7 @@ export function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-4 py-10 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
@@ -151,7 +151,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-100">
+      <div className="border-t border-slate-100 relative z-10">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-400">
             © {new Date().getFullYear()} Vzite Technologies LLC. All rights reserved. Dubai, UAE.
@@ -163,11 +163,17 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs text-slate-400">All systems operational</span>
-          </div>
         </div>
+      </div>
+
+      {/* Background stylized name */}
+      <div className="absolute -bottom-12 -right-12 md:-bottom-24 md:-right-24 pointer-events-none select-none z-0">
+        <span className="text-[12rem] md:text-[28rem] font-black tracking-tighter leading-none inline-block">
+          <span className="text-slate-900/[0.08]">V</span>
+          <span className="bg-gradient-to-r from-slate-900/[0.05] to-transparent bg-clip-text text-transparent">
+            ZITE
+          </span>
+        </span>
       </div>
     </footer>
   )
