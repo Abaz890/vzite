@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Search, Globe, Phone, Zap, AtSign, Menu, X, ChevronRight, Video, MessageSquare, RadioTower, Layers, Star, UserCheck, Target, Info, BookOpen, Mail, Headphones } from "lucide-react"
+import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Menu, X, ChevronRight, UserCheck, Target, Info, BookOpen, Mail, Headphones, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type MenuKey = "features" | "solutions" | "integrations" | "company" | null
@@ -38,24 +38,30 @@ const solutionsItems: DropdownItem[] = [
   { icon: Monitor, label: "IT", id: "it", desc: "Secure infrastructure" },
 ]
 
-const integrationsItems: DropdownItem[] = [
-  { icon: Search, label: "Property Finder", id: "property-finder", color: "text-red-500" },
-  { icon: Home, label: "Bayut", id: "bayut", color: "text-orange-500" },
-  { icon: Building2, label: "Dubizzle", id: "dubizzle", color: "text-green-500" },
-  { icon: Star, label: "JamesEdition", id: "jamesedition", color: "text-yellow-500" },
-  { icon: Target, label: "Meta Ads", id: "meta-ads", color: "text-blue-500" },
-  { icon: Target, label: "Google Ads", id: "google-ads", color: "text-red-400" },
-  { icon: Calendar, label: "Google Calendar", id: "google-calendar", color: "text-blue-400" },
-  { icon: Video, label: "TikTok", id: "tiktok", color: "text-pink-500" },
-  { icon: Zap, label: "Zapier", id: "zapier", color: "text-orange-400" },
-  { icon: AtSign, label: "LinkedIn", id: "linkedin", color: "text-blue-600" },
-  { icon: Globe, label: "Websites & Landing Pages", id: "websites-landing-pages", color: "text-teal-500" },
-  { icon: MessageSquare, label: "ManyChat", id: "manychat", color: "text-purple-500" },
-  { icon: RadioTower, label: "Property Booster", id: "property-booster", color: "text-emerald-500" },
-  { icon: Phone, label: "BrightCall", id: "brightcall", color: "text-cyan-500" },
-  { icon: Phone, label: "CallGear", id: "callgear", color: "text-indigo-500" },
-  { icon: MessageSquare, label: "SleekFlow", id: "sleekflow", color: "text-violet-500" },
-  { icon: Layers, label: "Liana", id: "liana", color: "text-rose-500" },
+interface IntegrationItem {
+  logo: string
+  label: string
+  id: string
+}
+
+const integrationsItems: IntegrationItem[] = [
+  { logo: "https://framerusercontent.com/images/FMVG4MQPIAGceJtxQ0Hva7ro.png", label: "Property Finder", id: "property-finder" },
+  { logo: "https://framerusercontent.com/images/MSm9KtAPH2GYBFDPHV1GbmHcgUU.png", label: "Bayut", id: "bayut" },
+  { logo: "https://framerusercontent.com/images/cauTZujpRYs2sp40E2XYcHvM.png", label: "Dubizzle", id: "dubizzle" },
+  { logo: "https://framerusercontent.com/images/F8oEd9rkULS5MnDtlSEhZB1NA.png", label: "JamesEdition", id: "jamesedition" },
+  { logo: "https://framerusercontent.com/images/VZBUgwg05B6i9MgYz4wJGksav3Y.png", label: "Meta Ads", id: "meta-ads" },
+  { logo: "https://framerusercontent.com/images/Sl6V7jA8oaJZA16wgRcKAKpZa4.png", label: "Google Ads", id: "google-ads" },
+  { logo: "https://framerusercontent.com/images/EnykilyFzicRndbSKsn0lbDFV44.png", label: "Google Calendar", id: "google-calendar" },
+  { logo: "https://framerusercontent.com/images/9zE0MFfgfXP0WoF9v4Do6ZltN4.png", label: "TikTok", id: "tiktok" },
+  { logo: "https://framerusercontent.com/images/X2zyZuDT7wAnAgiTF3cPX8xXiPQ.png", label: "Zapier", id: "zapier" },
+  { logo: "https://framerusercontent.com/images/UxQdr6qLYPb1mRd6BvernHLxySw.png", label: "LinkedIn", id: "linkedin" },
+  { logo: "", label: "Websites & Landing Pages", id: "websites-landing-pages" },
+  { logo: "https://framerusercontent.com/images/nWbO1VDG90XAMtNwPOVL6BuAE.png", label: "ManyChat", id: "manychat" },
+  { logo: "https://framerusercontent.com/images/rZmWlbieOOwgVzYYTT8sbypUw.png", label: "Property Booster", id: "property-booster" },
+  { logo: "https://framerusercontent.com/images/EJ2B4QmwG6YLtN7wPBJeLTRMIXQ.png", label: "BrightCall", id: "brightcall" },
+  { logo: "https://framerusercontent.com/images/GGF2IFUYW35dGKsDDoaTAfIvBo.png", label: "CallGear", id: "callgear" },
+  { logo: "https://framerusercontent.com/images/0xLUITCbLRbNkl5aKfeZS0jM40.png", label: "SleekFlow", id: "sleekflow" },
+  { logo: "https://framerusercontent.com/images/KwDSqJ5uHCiqlgHeqPXWptwzJY.png", label: "Liana", id: "liana" },
 ]
 
 interface CompanyItem {
@@ -103,7 +109,7 @@ export function Navigation({ onLoginClick }: NavigationProps) {
     <div className="relative z-30 px-4 pt-5" ref={navRef}>
       <nav className="mx-auto max-w-7xl bg-white rounded-full px-6 py-3 shadow-lg flex items-center justify-between gap-4 border border-slate-200">
         <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-          <span className="font-black text-slate-900 text-xl tracking-tighter">VZITE</span>
+          <img src="/logo.jpeg" alt="Vzite" className="h-8 w-auto" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
@@ -240,7 +246,13 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                         onClick={() => setOpenMenu(null)}
                         className="flex items-center gap-2 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <item.icon className={cn("w-4 h-4 flex-shrink-0", item.color)} />
+                        {item.logo ? (
+                          <img src={item.logo} alt={item.label} className="w-12 h-12 rounded-lg flex-shrink-0 object-contain" />
+                        ) : (
+                          <div className="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                            <Globe className="w-4 h-4 text-teal-500" />
+                          </div>
+                        )}
                         <span className="text-sm text-slate-700 group-hover:text-slate-900 font-medium truncate">{item.label}</span>
                       </Link>
                     ))}
@@ -282,7 +294,7 @@ export function Navigation({ onLoginClick }: NavigationProps) {
           <div className="flex flex-col gap-1">
             <MobileNavItem label="Features" items={featuresItems} category="features" onClose={() => setMobileOpen(false)} />
             <MobileNavItem label="Solutions" items={solutionsItems} category="solutions" onClose={() => setMobileOpen(false)} />
-            <MobileNavItem label="Integrations" items={integrationsItems} category="integrations" onClose={() => setMobileOpen(false)} />
+            <MobileIntegrationsNavItem items={integrationsItems} onClose={() => setMobileOpen(false)} />
             <Link
               to="/mobile"
               onClick={() => setMobileOpen(false)}
@@ -355,6 +367,43 @@ function MobileNavItem({ label, items, category, onClose }: { label: string; ite
               onClick={onClose}
               className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
             >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function MobileIntegrationsNavItem({ items, onClose }: { items: IntegrationItem[]; onClose: () => void }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-colors"
+      >
+        Integrations
+        <ChevronDown className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
+      </button>
+      {isOpen && (
+        <div className="pl-4 mt-1 space-y-1">
+          {items.map((item) => (
+            <Link
+              key={item.id}
+              to={`/integrations/${item.id}`}
+              onClick={onClose}
+              className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+            >
+              {item.logo ? (
+                <img src={item.logo} alt={item.label} className="w-6 h-6 rounded-lg object-contain flex-shrink-0" />
+              ) : (
+                <div className="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                  <Globe className="w-3.5 h-3.5 text-teal-500" />
+                </div>
+              )}
               {item.label}
             </Link>
           ))}

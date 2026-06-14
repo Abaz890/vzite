@@ -105,7 +105,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <div className="mb-6">
-              <span className="font-black text-slate-900 text-2xl tracking-tighter uppercase">Vzite</span>
+              <img src="/logo.jpeg" alt="Vzite" className="h-9 w-auto" />
             </div>
 
             <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-xs">
