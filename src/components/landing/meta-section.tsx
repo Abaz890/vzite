@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react"
-import { TrendingUp, ArrowUpRight, CheckCircle2, Target, Zap, Shield, Users, BarChart3, DollarSign } from "lucide-react"
+import { ArrowUpRight, Target, Zap, Users, BarChart3, DollarSign } from "lucide-react"
 
 const FbIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className ?? "w-3.5 h-3.5 text-blue-400"}>
@@ -13,21 +12,7 @@ const IgIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
-const leads = [
-  { name: "Fatima Al Hassan", source: "fb", budget: "AED 4.2M", time: "2s ago", status: "new" },
-  { name: "James Patterson", source: "ig", budget: "AED 1.9M", time: "18s ago", status: "assigned" },
-  { name: "Wei Chen", source: "fb", budget: "AED 8.5M", time: "1m ago", status: "contacted" },
-  { name: "Aisha Mohammed", source: "ig", budget: "AED 2.8M", time: "3m ago", status: "viewing" },
-]
-
 export function MetaSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setActiveIndex(i => (i + 1) % leads.length), 2000)
-    return () => clearInterval(t)
-  }, [])
-
   return (
     <section className="py-12 md:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
@@ -42,82 +27,74 @@ export function MetaSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: interactive UI visualization */}
-          <div className="relative">
-            <div className="bg-slate-900 rounded-3xl p-6 shadow-2xl">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center">
-                    <FbIcon className="w-3.5 h-3.5 text-blue-400" />
-                  </div>
-                  <span className="text-sm font-semibold text-white">Meta Lead Stream</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-1 rounded-full">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-bold text-emerald-300">LIVE</span>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left: CRM dashboard image with floating badges */}
+          <div className="relative lg:col-span-7 order-2 lg:order-1 py-16 px-8">
+            <div className="absolute -inset-10 bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl" />
 
-              <div className="space-y-2.5 mb-5">
-                {leads.map((lead, i) => (
-                  <div
-                    key={i}
-                    className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-500 ${
-                      i === activeIndex ? "bg-white/10 border border-white/10" : "bg-white/5"
-                    }`}
-                  >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-                      {lead.name[0]}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold text-white truncate">{lead.name}</span>
-                        {lead.source === "fb" ? (
-                          <FbIcon className="w-3 h-3 text-blue-400 flex-shrink-0" />
-                        ) : (
-                          <IgIcon className="w-3 h-3 text-pink-400 flex-shrink-0" />
-                        )}
-                      </div>
-                      <div className="flex items-center justify-between mt-0.5">
-                        <span className="text-[10px] text-emerald-400 font-bold">{lead.budget}</span>
-                        <span className="text-[9px] text-slate-500">{lead.time}</span>
-                      </div>
-                    </div>
-                    <StatusBadge status={lead.status} />
-                  </div>
-                ))}
-              </div>
+            <img
+              src="/crm-realestate.png"
+              alt="CRM Real Estate Dashboard"
+              className="w-full h-auto rounded-2xl mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative z-10 border border-slate-200/50"
+            />
 
-              <div className="flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 rounded-xl p-3">
-                <Shield className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <div>
-                  <div className="text-xs font-bold text-white">Conversions API Active</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">Server-to-server · 100% lead capture · No pixel dependency</div>
-                </div>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 ml-auto flex-shrink-0" />
+            {/* Top-left: leads badge */}
+            <div className="absolute -top-4 -left-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-4 h-4 text-blue-600" />
+              </div>
+              <div>
+                <div className="text-[11px] text-slate-400 font-medium">New leads today</div>
+                <div className="text-lg font-black text-slate-900 leading-none">+47 <span className="text-xs font-semibold text-emerald-500">↑ 12%</span></div>
               </div>
             </div>
 
-            <div className="absolute -right-4 top-8 bg-white rounded-2xl shadow-xl p-4 border border-slate-100 hidden md:block">
-              <div className="text-xs text-slate-400 mb-1">Cost Per Lead</div>
-              <div className="text-2xl font-black text-emerald-600">AED 12</div>
-              <div className="flex items-center gap-1 text-xs text-emerald-500 font-semibold mt-1">
-                <ArrowUpRight className="w-3 h-3" /> 41% lower
+            {/* Top-right: sync badge */}
+            <div className="absolute -top-4 -right-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+              <div className="text-[11px] font-bold text-slate-700">Meta Sync</div>
+              <div className="text-[10px] text-slate-400">Live · 2s ago</div>
+            </div>
+
+            {/* Middle-left: cost per lead */}
+            <div className="absolute top-1/2 -translate-y-1/2 -left-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3">
+              <div className="text-[11px] text-slate-400 font-medium mb-0.5">Cost per Lead</div>
+              <div className="text-xl font-black text-slate-900">$4.20</div>
+              <div className="text-[10px] text-emerald-500 font-semibold">↓ 31% vs last month</div>
+            </div>
+
+            {/* Middle-right: closed deals */}
+            <div className="absolute top-1/2 -translate-y-1/2 -right-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                <Target className="w-4 h-4 text-emerald-600" />
+              </div>
+              <div>
+                <div className="text-[11px] text-slate-400 font-medium">Closed This Month</div>
+                <div className="text-base font-black text-slate-900 leading-none">14 deals</div>
               </div>
             </div>
 
-            <div className="absolute -left-4 bottom-8 bg-white rounded-2xl shadow-xl p-4 border border-slate-100 hidden md:block">
-              <div className="text-xs text-slate-400 mb-1">ROAS This Month</div>
-              <div className="text-2xl font-black text-blue-600">3.4×</div>
-              <div className="flex items-center gap-1 text-xs text-blue-500 font-semibold mt-1">
-                <TrendingUp className="w-3 h-3" /> Meta Optimized
+            {/* Bottom-left: ROI badge */}
+            <div className="absolute -bottom-4 left-4 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3">
+              <div className="text-[11px] text-slate-400 font-medium mb-0.5">Avg. ROI on Ad Spend</div>
+              <div className="text-xl font-black text-slate-900">8.4×</div>
+              <div className="text-[10px] text-emerald-500 font-semibold">across active campaigns</div>
+            </div>
+
+            {/* Bottom-right: pipeline badge */}
+            <div className="absolute -bottom-4 right-4 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-violet-50 flex items-center justify-center flex-shrink-0">
+                <BarChart3 className="w-4 h-4 text-violet-600" />
+              </div>
+              <div>
+                <div className="text-[11px] text-slate-400 font-medium">Pipeline Value</div>
+                <div className="text-base font-black text-slate-900 leading-none">$2.1M</div>
               </div>
             </div>
           </div>
 
           {/* Right: marketing copy */}
-          <div>
+          <div className="lg:col-span-5 order-1 lg:order-2">
             <div className="space-y-6 mb-10">
               {[
                 {
