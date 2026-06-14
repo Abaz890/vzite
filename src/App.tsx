@@ -8,9 +8,8 @@ import { Testimonials } from "@/components/landing/testimonials"
 import { Footer } from "@/components/landing/footer"
 import { LoginPage } from "@/components/auth/LoginPage"
 import { FeatureDetailPage } from "@/components/pages/FeatureDetailPage"
-import { SectionOverviewPage } from "@/components/pages/SectionOverviewPage"
 import { MobilePage } from "@/components/pages/MobilePage"
-import { featuresPages, solutionsPages, integrationsPages, getPageById, getPagesByCategory } from "@/lib/page-data"
+import { getPageById, getPagesByCategory } from "@/lib/page-data"
 
 function LandingPage() {
   const navigate = useNavigate()
@@ -30,48 +29,6 @@ function LandingPage() {
   )
 }
 
-function FeaturesOverviewPage() {
-  const navigate = useNavigate()
-
-  return (
-    <SectionOverviewPage
-      title="Platform Features"
-      subtitle="Every feature purpose-built for UAE brokerages. From lead capture to deal close, Vzite covers your entire workflow."
-      category="features"
-      pages={featuresPages}
-      onBack={() => navigate("/")}
-    />
-  )
-}
-
-function SolutionsOverviewPage() {
-  const navigate = useNavigate()
-
-  return (
-    <SectionOverviewPage
-      title="Solutions for Every Team"
-      subtitle="Whether you're in sales, marketing, management, or operations—Vzite has the tools your team needs."
-      category="solutions"
-      pages={solutionsPages}
-      onBack={() => navigate("/")}
-    />
-  )
-}
-
-function IntegrationsOverviewPage() {
-  const navigate = useNavigate()
-
-  return (
-    <SectionOverviewPage
-      title="Seamlessly Connected"
-      subtitle="Vzite integrates with the platforms UAE brokerages use every day. Your tools, unified in one CRM."
-      category="integrations"
-      pages={integrationsPages}
-      onBack={() => navigate("/")}
-    />
-  )
-}
-
 function FeatureDetailRoute() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -87,18 +44,11 @@ function FeatureDetailRoute() {
 
   const relatedPages = getPagesByCategory(category).filter(p => p.id !== pageId)
 
-  return (
-    <FeatureDetailPage
-      page={page}
-      relatedPages={relatedPages}
-      onBack={() => navigate(`/${category}`)}
-    />
-  )
+  return <FeatureDetailPage page={page} relatedPages={relatedPages} />
 }
 
 function MobilePageRoute() {
-  const navigate = useNavigate()
-  return <MobilePage onBack={() => navigate("/")} />
+  return <MobilePage />
 }
 
 function LoginPageRoute() {
@@ -113,9 +63,6 @@ export function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPageRoute />} />
         <Route path="/mobile" element={<MobilePageRoute />} />
-        <Route path="/features" element={<FeaturesOverviewPage />} />
-        <Route path="/solutions" element={<SolutionsOverviewPage />} />
-        <Route path="/integrations" element={<IntegrationsOverviewPage />} />
         <Route path="/features/:id" element={<FeatureDetailRoute />} />
         <Route path="/solutions/:id" element={<FeatureDetailRoute />} />
         <Route path="/integrations/:id" element={<FeatureDetailRoute />} />

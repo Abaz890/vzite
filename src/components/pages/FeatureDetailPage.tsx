@@ -1,15 +1,15 @@
-import { ArrowRight, ArrowLeft, Check } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import type { PageData } from "@/lib/page-data"
+import { Navigation } from "@/components/navigation"
 
 interface FeatureDetailPageProps {
   page: PageData
   relatedPages: PageData[]
-  onBack: () => void
 }
 
-export function FeatureDetailPage({ page, relatedPages, onBack }: FeatureDetailPageProps) {
+export function FeatureDetailPage({ page, relatedPages }: FeatureDetailPageProps) {
   const Icon = page.icon
 
   return (
@@ -25,30 +25,11 @@ export function FeatureDetailPage({ page, relatedPages, onBack }: FeatureDetailP
         />
       </div>
 
-      {/* Header */}
-      <div className="relative z-10 px-4 pt-5">
-        <nav className="mx-auto max-w-7xl bg-white rounded-full px-6 py-3 shadow-lg flex items-center justify-between gap-4 border border-slate-200">
-          <button onClick={onBack} className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="font-black text-slate-900 text-xl tracking-tighter">VZITE</span>
-          </button>
-          <div className="flex items-center gap-2">
-            <button className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
-              Login
-            </button>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1.5 bg-slate-900 text-white text-sm font-bold px-5 py-2 rounded-full transition-all hover:bg-slate-800"
-            >
-              Get Demo
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </nav>
-      </div>
+      {/* Navigation */}
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-16 pb-20 px-4">
+      <section className="relative z-10 pt-8 pb-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           {/* Category Badge */}
           <div className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
@@ -128,10 +109,10 @@ export function FeatureDetailPage({ page, relatedPages, onBack }: FeatureDetailP
           <div className="max-w-3xl mx-auto text-center">
             <div className="bg-slate-900 rounded-3xl p-10 md:p-14">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Transform Your {page.category === "integrations" ? "Integrations" : "Operations"}?
+                Try {page.label} Today
               </h2>
               <p className="text-slate-400 mb-8 text-lg">
-                See how Vzite's {page.label.toLowerCase()} can help your brokerage close more deals.
+                See how {page.label.toLowerCase()} fits into your workflow with a personalized demo.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 {page.cta?.primary && (
@@ -165,9 +146,6 @@ export function FeatureDetailPage({ page, relatedPages, onBack }: FeatureDetailP
               <h3 className="text-xl font-bold text-slate-900">
                 More {page.category.charAt(0).toUpperCase() + page.category.slice(1)}
               </h3>
-              <button onClick={onBack} className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
-                View all →
-              </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {relatedPages.slice(0, 3).map((relatedPage) => {
