@@ -4,9 +4,7 @@ import { Footer } from "@/components/landing/footer"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
 
-const aboutWords = [
-  { text: "Building the Future of", className: "text-slate-900" },
-]
+
 
 const teamMembers = [
   {
