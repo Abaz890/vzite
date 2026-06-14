@@ -1,4 +1,4 @@
-import { Building2, Share2, Smartphone, CheckCircle2, ArrowRight, Globe, DollarSign, FileText, BarChart3 } from "lucide-react"
+import { Building2, Share2, Smartphone, ArrowRight, Globe, DollarSign, FileText } from "lucide-react"
 
 const features = [
   {
@@ -39,14 +39,6 @@ const features = [
   },
 ]
 
-const projects = [
-  { name: "Marina Crest Tower", developer: "Emaar", price: "AED 1,890,000", handover: "Q3 2026", type: "Luxury Residences" },
-  { name: "Safa Heights", developer: "Nakheel", price: "AED 2,450,000", handover: "Q1 2027", type: "Premium Apartments" },
-  { name: "Palm Jumeirah Villas", developer: "DAMAC", price: "AED 8,900,000", handover: "Q4 2026", type: "Exclusive Villas" },
-  { name: "Creek Harbour Tower", developer: "Emaar", price: "AED 3,200,000", handover: "Q2 2027", type: "Waterfront Living" },
-  { name: "Business Bay Lofts", developer: "Sobha", price: "AED 1,650,000", handover: "Q3 2027", type: "Modern Lofts" },
-  { name: "Al Furjan Townhouses", developer: "Nakheel", price: "AED 2,100,000", handover: "Q1 2027", type: "Family Homes" },
-]
 
 export function OffPlanSection() {
   return (

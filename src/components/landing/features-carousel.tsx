@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { X, ArrowLeft, ArrowRight, Building2, RotateCcw, Zap, Share2, Users } from "lucide-react"
+import { X, ArrowLeft, ArrowRight, Building2, RotateCcw, Zap, Share2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface CardData {

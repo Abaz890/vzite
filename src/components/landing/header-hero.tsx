@@ -6,8 +6,7 @@ import {
   Shield, DollarSign, Monitor, Search, Globe, Phone, Mail,
   BookOpen, Headphones, Zap, AtSign,
   Menu, X, ArrowRight, Video, MessageSquare, RadioTower, Layers,
-  Star, FileText, UserCheck, Target,
-  Share2
+  Star, FileText, UserCheck, Target
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
