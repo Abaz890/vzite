@@ -52,9 +52,30 @@ function IntegrationConnector({ logo, label }: { logo?: string; label: string })
   )
 }
 
-function sectionImage(page: PageData, idx: number): string {
-  const seed = `${page.id}-${idx}-${page.sections[idx].title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
-  return `https://picsum.photos/seed/${seed}/800/600`
+const featureScreenshots: Record<string, string> = {
+  "lead-management": "/leads.png",
+  "listing-management": "/listing-management.png",
+  "owners-management": "/owner-management.png",
+  "offplan-projects": "/off-plan.png",
+  "map-view": "/off-plan.png",
+  "transactions-commissions": "/transactions.png",
+  "calendar": "/calendar.png",
+  "vzite-database": "/database-1.png",
+  "database-management": "/database-2.png",
+  "workflow-approvals": "/workflow-approvals.png",
+  "kpi-insights": "/kpi-insight.png",
+  "custom-fields": "/custom-fileds.png",
+  "lead-rotation": "/lead-rotation.png",
+  "management": "/kpi-insight.png",
+  "sales": "/leads.png",
+  "marketing": "/marketing.png",
+  "admins-operations": "/workflow-approvals.png",
+  "accounts": "/transactions.png",
+  "it": "/database-2.png",
+}
+
+function sectionImage(page: PageData): string {
+  return featureScreenshots[page.id] ?? ""
 }
 
 interface FeatureDetailPageProps {
@@ -133,22 +154,34 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
                 {/* Stat Card or Image */}
                 <div className={sectionIdx % 2 === 1 ? "lg:order-1" : ""}>
                   {section.stat ? (
-                    <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-8 border border-teal-100">
-                      <div className="text-5xl md:text-6xl font-black text-teal-700 mb-2">
-                        {section.stat.value}
+                    <>
+                      <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-8 border border-teal-100 mb-6">
+                        <div className="text-5xl md:text-6xl font-black text-teal-700 mb-2">
+                          {section.stat.value}
+                        </div>
+                        <div className="text-lg text-slate-600">{section.stat.label}</div>
                       </div>
-                      <div className="text-lg text-slate-600">{section.stat.label}</div>
-                    </div>
+                      {featureScreenshots[page.id] && (
+                        <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
+                          <img
+                            src={featureScreenshots[page.id]}
+                            alt={page.label}
+                            className="w-full object-cover object-top"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+                    </>
                   ) : page.category === "integrations" && page.logo ? (
                     <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center h-72 md:h-96">
                       <img src={page.logo} alt={page.label} className="w-40 h-40 object-contain" />
                     </div>
                   ) : (
-                    <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm">
+                    <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
                       <img
-                        src={section.image || sectionImage(page, sectionIdx)}
+                        src={section.image || sectionImage(page)}
                         alt={section.title}
-                        className="w-full h-72 md:h-96 object-cover"
+                        className="w-full object-cover object-top"
                         loading="lazy"
                       />
                     </div>

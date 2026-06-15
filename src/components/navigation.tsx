@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ChevronDown, Users, Hop as Home, Building2, MapPin, Calendar, Database, GitBranch, TrendingUp, Settings, SlidersHorizontal, RotateCcw, Briefcase, Megaphone, Shield, DollarSign, Monitor, Menu, X, ChevronRight, UserCheck, Info, BookOpen, Mail, Headphones, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -87,6 +87,12 @@ export function Navigation({ onLoginClick }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    if (onLoginClick) onLoginClick()
+    else navigate("/login")
+  }
 
   useEffect(() => {
     setOpenMenu(null)
@@ -162,7 +168,7 @@ export function Navigation({ onLoginClick }: NavigationProps) {
         </div>
 
         <div className="hidden lg:flex items-center gap-2">
-          <button onClick={onLoginClick} className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
+          <button onClick={handleLogin} className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
             Login
           </button>
           <a
@@ -304,7 +310,7 @@ export function Navigation({ onLoginClick }: NavigationProps) {
             </Link>
             <MobileCompanyNavItem items={companyItems} onClose={() => setMobileOpen(false)} />
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
-              <button onClick={() => { onLoginClick?.(); setMobileOpen(false) }} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
+              <button onClick={() => { handleLogin(); setMobileOpen(false) }} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
               <a href="#" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
                 Get Free Demo
               </a>
