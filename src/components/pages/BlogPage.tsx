@@ -10,6 +10,7 @@ const blogPosts = [
     category: "Sales Tips",
     date: "June 10, 2024",
     readTime: "5 min read",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     featured: true,
   },
   {
@@ -18,6 +19,7 @@ const blogPosts = [
     category: "Integrations",
     date: "June 8, 2024",
     readTime: "8 min read",
+    imageUrl: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80",
     featured: true,
   },
   {
@@ -26,6 +28,7 @@ const blogPosts = [
     category: "Market Insights",
     date: "June 5, 2024",
     readTime: "12 min read",
+    imageUrl: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
     featured: false,
   },
   {
@@ -34,6 +37,7 @@ const blogPosts = [
     category: "Sales Tips",
     date: "June 3, 2024",
     readTime: "4 min read",
+    imageUrl: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=800&q=80",
     featured: false,
   },
   {
@@ -42,6 +46,7 @@ const blogPosts = [
     category: "Integrations",
     date: "May 28, 2024",
     readTime: "6 min read",
+    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     featured: false,
   },
   {
@@ -50,11 +55,10 @@ const blogPosts = [
     category: "Management",
     date: "May 25, 2024",
     readTime: "10 min read",
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
     featured: false,
   },
 ]
-
-const categories = ["All Posts", "Sales Tips", "Integrations", "Market Insights", "Management"]
 
 export function BlogPage() {
   const featuredPosts = blogPosts.filter(p => p.featured)
@@ -88,39 +92,17 @@ export function BlogPage() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="relative z-10 pb-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  cat === "All Posts"
-                    ? "bg-slate-900 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Posts */}
       <section className="relative z-10 pb-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-lg font-bold text-slate-900 mb-6">Featured Articles</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredPosts.map((post) => (
               <article
                 key={post.title}
                 className="group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-lg transition-all"
               >
-                <div className="h-48 bg-gradient-to-br from-teal-50 to-emerald-50 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-teal-100 rounded-2xl" />
-                </div>
+                <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
                     <span className="font-semibold text-teal-600">{post.category}</span>
@@ -174,34 +156,9 @@ export function BlogPage() {
                   </h3>
                   <p className="text-sm text-slate-500 mt-1 line-clamp-1">{post.excerpt}</p>
                 </div>
-                <a href="#" className="flex-shrink-0 self-center text-sm font-semibold text-teal-600">
-                  Read →
-                </a>
+
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center border border-slate-100">
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">Stay Updated</h2>
-            <p className="text-slate-500 mb-6">Get the latest articles and market insights delivered to your inbox weekly.</p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-teal-500 text-sm"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition-colors text-sm"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
       </section>

@@ -1,7 +1,9 @@
-import { BookOpen, MessageCircle, Video, Headphones, ChevronRight, Search } from "lucide-react"
+import { useState } from "react"
+import { BookOpen, MessageCircle, Video, Headphones, ChevronDown, Search, Plus } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
+import { motion, AnimatePresence } from "framer-motion"
 
 const helpCategories = [
   {
@@ -34,16 +36,68 @@ const helpCategories = [
   },
 ]
 
-const popularArticles = [
-  { title: "Getting Started with Vzite", category: "Basics", time: "5 min read" },
-  { title: "Connecting Property Portals", category: "Integrations", time: "8 min read" },
-  { title: "Setting Up Lead Distribution", category: "Lead Management", time: "6 min read" },
-  { title: "Meta Ads Integration Guide", category: "Integrations", time: "10 min read" },
-  { title: "Creating Custom Fields", category: "Customization", time: "4 min read" },
-  { title: "Managing User Permissions", category: "Administration", time: "7 min read" },
+const faqs = [
+  { 
+    question: "How do I get started with Vzite?", 
+    category: "Basics", 
+    answer: "Sign up for an account and follow our interactive onboarding wizard. You can import your current leads via CSV or connect your portals directly to start seeing data in real-time." 
+  },
+  { 
+    question: "Connecting Property Portals", 
+    category: "Integrations", 
+    answer: "Vzite supports direct API integration with Bayut, Property Finder, and Dubizzle. Simply navigate to Settings > Integrations and provide your XML feed or API keys." 
+  },
+  { 
+    question: "Setting Up Lead Distribution", 
+    category: "Lead Management", 
+    answer: "You can create round-robin rules or weight-based distribution based on agent availability, location specialization, or lead source." 
+  },
+  { 
+    question: "Meta Ads Integration Guide", 
+    category: "Integrations", 
+    answer: "Connect your Facebook Business Manager directly. Vzite will automatically capture lead form data and assign it to your sales team within seconds of submission." 
+  },
 ]
 
+function AccordionItem({ question, answer, category, isOpen, onClick }: any) {
+  return (
+    <div className={`group border-b border-slate-100 last:border-0 transition-all duration-300 ${isOpen ? 'bg-slate-50/50' : ''}`}>
+      <button
+        onClick={onClick}
+        className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+      >
+        <div className="flex-1 pr-8">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-teal-600 mb-2 block">{category}</span>
+          <h3 className={`font-bold text-lg transition-colors duration-200 ${isOpen ? 'text-teal-700' : 'text-slate-900 group-hover:text-teal-600'}`}>
+            {question}
+          </h3>
+        </div>
+        <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-teal-500 border-teal-500 rotate-180' : 'border-slate-200 group-hover:border-teal-500'}`}>
+          <ChevronDown className={`w-4 h-4 transition-colors ${isOpen ? 'text-white' : 'text-slate-400 group-hover:text-teal-500'}`} />
+        </div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-8 pt-0 text-slate-500 leading-relaxed max-w-3xl">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 export function SupportPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+
   return (
     <div className="min-h-screen bg-white">
       {/* Subtle grid overlay */}
@@ -69,18 +123,6 @@ export function SupportPage() {
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-8">
             Find answers, learn Vzite inside out, or reach out to our support team.
           </p>
-
-          {/* Search */}
-          <div className="max-w-xl mx-auto">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search help articles, tutorials, FAQs..."
-                className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:border-teal-500 text-sm shadow-sm"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -89,10 +131,9 @@ export function SupportPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {helpCategories.map((cat) => (
-              <a
+              <div
                 key={cat.title}
-                href="#"
-                className="group p-6 bg-white rounded-2xl border border-slate-100 hover:shadow-lg hover:border-slate-200 transition-all"
+                className="group p-6 bg-white rounded-2xl border border-slate-100 hover:shadow-lg hover:border-teal-100 transition-all cursor-default"
               >
                 <div className={`w-12 h-12 rounded-xl ${cat.color} flex items-center justify-center mb-4`}>
                   <cat.icon className="w-6 h-6" />
@@ -102,77 +143,25 @@ export function SupportPage() {
                 {cat.articles && (
                   <div className="text-xs text-slate-400 mt-3">{cat.articles} articles</div>
                 )}
-              </a>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Popular Articles */}
+      {/* Frequently Asked Questions */}
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xl font-bold text-slate-900 mb-6">Popular Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {popularArticles.map((article) => (
-              <a
-                key={article.title}
-                href="#"
-                className="group flex items-center justify-between p-5 bg-white rounded-xl border border-slate-100 hover:shadow-md hover:border-slate-200 transition-all"
-              >
-                <div>
-                  <div className="text-xs font-semibold text-teal-600 mb-1">{article.category}</div>
-                  <div className="font-semibold text-slate-900 group-hover:text-teal-600 transition-colors">
-                    {article.title}
-                  </div>
-                  <div className="text-xs text-slate-400 mt-1">{article.time}</div>
-                </div>
-                <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
-              </a>
+          <h2 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Common Questions</h2>
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                {...faq}
+                isOpen={openIndex === index}
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Support */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Still Need Help?
-                </h2>
-                <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                  Our support team is available 24/7. Submit a ticket and we'll respond within 4 hours.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-slate-900 font-semibold px-6 py-3 rounded-xl hover:bg-slate-100 transition-all"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Start Live Chat
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-all"
-                  >
-                    Submit Ticket
-                  </a>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-                  <div className="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Average Response</div>
-                  <div className="text-white font-bold text-lg">Under 4 hours</div>
-                </div>
-                <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-                  <div className="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Customer Satisfaction</div>
-                  <div className="text-white font-bold text-lg">98.5%</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

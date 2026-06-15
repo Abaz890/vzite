@@ -46,14 +46,14 @@ export function HeaderHero({ onLoginClick }: HeaderHeroProps) {
 
           <div className="animate-fade-up-delay2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#"
+              href="/contact"
               className="group inline-flex items-center gap-2.5 bg-slate-900 text-white font-bold text-base px-8 py-4 rounded-full hover:bg-slate-800 hover:scale-[1.03] transition-all"
             >
               Contact With Expert
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#"
+              href="/about"
               className="inline-flex items-center gap-2.5 text-slate-500 hover:text-slate-800 font-semibold text-base transition-colors"
             >
               Learn More

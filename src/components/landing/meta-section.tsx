@@ -125,14 +125,14 @@ export function MetaSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="#"
+                href="/integrations/meta-ads"
                 className="inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-7 py-4 rounded-full transition-all"
               >
                 See Meta Integration in Action
                 <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="/integrations/meta-ads"
                 className="inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 font-semibold text-sm px-7 py-4 rounded-full hover:bg-slate-50 transition-all"
               >
                 <DollarSign className="w-4 h-4" />
