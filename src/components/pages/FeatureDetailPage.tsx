@@ -1,5 +1,6 @@
 import { Check, Globe } from "lucide-react"
 import { useEffect, useRef } from "react"
+import { motion, useReducedMotion } from "motion/react"
 import type { PageData } from "@/lib/page-data"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
@@ -28,19 +29,14 @@ function IntegrationConnector({ logo, label }: { logo?: string; label: string })
 
   return (
     <div className="flex items-center justify-center gap-4 mb-8">
-      {/* Vzite logo */}
       <div className="w-20 h-20 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center p-2 flex-shrink-0">
         <img src="/logo.jpeg" alt="Vzite" className="w-full h-full object-contain" />
       </div>
-
-      {/* Animated dots */}
       <div ref={dotsRef} className="flex items-center gap-1.5">
         {[0, 1, 2, 3, 4].map(i => (
           <span key={i} className="dot block w-2.5 h-2.5 rounded-full bg-teal-500" />
         ))}
       </div>
-
-      {/* Integration logo */}
       <div className="w-20 h-20 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center p-2 flex-shrink-0">
         {logo ? (
           <img src={logo} alt={label} className="w-full h-full object-contain" />
@@ -74,18 +70,30 @@ const featureScreenshots: Record<string, string> = {
   "it": "/database-2.png",
 }
 
-function sectionImage(page: PageData): string {
-  return featureScreenshots[page.id] ?? ""
-}
-
 interface FeatureDetailPageProps {
   page: PageData
 }
 
 export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
+  const prefersReducedMotion = useReducedMotion()
+
+  const spring = { type: "spring", damping: 28, stiffness: 110, mass: 1 }
+
+  const anim = (delay = 0) =>
+    prefersReducedMotion
+      ? {}
+      : { initial: { opacity: 0, y: 36 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { ...spring, delay } }
+
+  const imgSrc = featureScreenshots[page.id] ?? ""
+
+  // Flatten all features from all sections
+  const allFeatures = page.sections.flatMap(s => s.features ?? [])
+
+  // Build section summaries (title + description only, no stats)
+  const sectionSummaries = page.sections.map(s => ({ title: s.title, description: s.description }))
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Subtle grid overlay */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.035]"
@@ -96,104 +104,105 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
         />
       </div>
 
-      {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative z-10 pt-8 pb-16 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Integration connector */}
+      {/* Hero */}
+      <section className="relative z-10 pt-20 pb-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
           {page.category === "integrations" && (
             <IntegrationConnector logo={page.logo} label={page.label} />
           )}
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
+          <motion.h1
+            {...anim(0.1)}
+            className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight mb-6"
+          >
             {page.heroTitle || page.label}
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p
+            {...anim(0.25)}
+            className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto leading-relaxed"
+          >
             {page.heroSubtitle || page.desc}
-          </p>
+          </motion.p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="relative z-10 pb-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          {page.sections.map((section, sectionIdx) => (
-            <div key={sectionIdx} className="mb-16 last:mb-0">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Content */}
-                <div className={sectionIdx % 2 === 1 ? "lg:order-2" : ""}>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                    {section.title}
-                  </h2>
-                  <p className="text-lg text-slate-500 leading-relaxed mb-8">
-                    {section.description}
-                  </p>
-
-                  {/* Features List */}
-                  {section.features && (
-                    <ul className="space-y-4">
-                      {section.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3 h-3 text-teal-600" />
-                          </div>
-                          <div>
-                            <span className="font-semibold text-slate-900">{feature.title}</span>
-                            <span className="text-slate-500"> — {feature.description}</span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                {/* Stat Card or Image */}
-                <div className={sectionIdx % 2 === 1 ? "lg:order-1" : ""}>
-                  {section.stat ? (
-                    <>
-                      <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-8 border border-teal-100 mb-6">
-                        <div className="text-5xl md:text-6xl font-black text-teal-700 mb-2">
-                          {section.stat.value}
-                        </div>
-                        <div className="text-lg text-slate-600">{section.stat.label}</div>
-                      </div>
-                      {featureScreenshots[page.id] && (
-                        <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
-                          <img
-                            src={featureScreenshots[page.id]}
-                            alt={page.label}
-                            className="w-full object-cover object-top"
-                            loading="lazy"
-                          />
-                        </div>
-                      )}
-                    </>
-                  ) : page.category === "integrations" && page.logo ? (
-                    <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center h-72 md:h-96">
-                      <img src={page.logo} alt={page.label} className="w-40 h-40 object-contain" />
-                    </div>
-                  ) : (
-                    <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-slate-50">
-                      <img
-                        src={section.image || sectionImage(page)}
-                        alt={section.title}
-                        className="w-full object-cover object-top"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                </div>
+      {/* Single Big Screenshot — same proportions as FeaturesCarousel cards */}
+      {imgSrc && (
+        <section className="relative z-10 pb-20 px-4">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              {...anim(0.35)}
+              className="rounded-[2rem] overflow-hidden border border-slate-200/50 shadow-[0_24px_64px_rgba(0,0,0,0.12)] relative group"
+            >
+              {/* Browser chrome */}
+              <div className="h-10 bg-slate-100 border-b border-slate-200 flex items-center px-4 gap-1.5 flex-shrink-0">
+                <div className="w-3 h-3 rounded-full bg-red-400/70" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                <div className="w-3 h-3 rounded-full bg-green-400/70" />
               </div>
-            </div>
-          ))}
+              <img
+                src={imgSrc}
+                alt={page.label}
+                className="w-full h-auto block"
+                loading="eager"
+              />
+              {/* Subtle gradient at bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Section overviews */}
+      <section className="relative z-10 pb-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sectionSummaries.map((s, i) => (
+              <motion.div
+                key={i}
+                {...anim(0.1 * i)}
+                className="p-6 rounded-2xl border border-slate-100 bg-slate-50/40 hover:border-teal-200 hover:bg-teal-50/30 transition-colors duration-300"
+              >
+                <h3 className="font-bold text-slate-900 text-lg mb-2">{s.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{s.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Features grid */}
+      {allFeatures.length > 0 && (
+        <section className="relative z-10 pb-28 px-4">
+          <div className="max-w-5xl mx-auto">
+            <motion.p
+              {...anim(0)}
+              className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8"
+            >
+              What's included
+            </motion.p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {allFeatures.map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  {...anim(0.05 * idx)}
+                  className="flex items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white hover:shadow-md hover:border-teal-100 transition-all duration-300"
+                >
+                  <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 text-sm mb-1">{feature.title}</h4>
+                    <p className="text-slate-500 text-xs leading-relaxed">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <Footer />
     </div>
   )

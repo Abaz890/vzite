@@ -6,7 +6,7 @@ const testimonials = [
       "Vzite completely transformed how we handle Meta leads. Before, leads from Facebook would sit for hours before an agent even saw them. Now they're assigned within 30 seconds and our closing rate has nearly doubled. The portal sync alone saves each agent 2 hours every day.",
     name: "Nibal Al-Rashid",
     designation: "Managing Partner, Ophir Properties",
-    src: "/testimonial-1.webp",
+    src: "/testimonial-1.jpg",
   },
   {
     quote:
@@ -14,13 +14,6 @@ const testimonials = [
     name: "Faissel Al-Mansouri",
     designation: "CEO & Founder, Pacific Investment Real Estate",
     src: "/testimonial-2.webp",
-  },
-  {
-    quote:
-      "The KPI dashboard keeps my entire team accountable without micromanagement. I can see lead response times, conversion rates, and deal progression for every agent in real-time. Vzite didn't just give us software — it gave us visibility we never had before.",
-    name: "Sarah Whitfield",
-    designation: "Head of Sales, Pinnacle Real Estate Group",
-    src: "/testimonial-1.webp",
   },
 ]
 
