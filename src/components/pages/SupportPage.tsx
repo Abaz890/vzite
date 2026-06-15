@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BookOpen, MessageCircle, Video, Headphones, ChevronDown, Search, Plus } from "lucide-react"
+import { BookOpen, MessageCircle, Video, Headphones, ChevronDown } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
