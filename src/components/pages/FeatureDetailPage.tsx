@@ -77,7 +77,7 @@ interface FeatureDetailPageProps {
 export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
   const prefersReducedMotion = useReducedMotion()
 
-  const spring = { type: "spring", damping: 28, stiffness: 110, mass: 1 }
+  const spring = { type: "spring" as const, damping: 28, stiffness: 110, mass: 1 }
 
   const anim = (delay = 0) =>
     prefersReducedMotion
