@@ -103,15 +103,11 @@ export function ContactPage() {
               {/* Contact links */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8 text-sm">
                 <a href="mailto:hello@vzite.com" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
-                  hello@vzite.com
+                  support@vzite.com
                 </a>
                 <span className="text-slate-300">•</span>
                 <a href="tel:+97141234567" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
-                  +1 (800) 123 XX21
-                </a>
-                <span className="text-slate-300">•</span>
-                <a href="mailto:support@vzite.com" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
-                  support@vzite.com
+                  +971 58 588 9961
                 </a>
               </div>
 
