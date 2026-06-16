@@ -57,19 +57,19 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="flex-1 flex items-center justify-center gap-2 bg-slate-900 text-white font-bold text-sm px-6 py-4 rounded-xl transition-all hover:bg-slate-800"
               >
                 Get Free Demo
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="flex-1 flex items-center justify-center gap-2 border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 font-semibold text-sm px-6 py-4 rounded-2xl transition-all hover:bg-slate-50"
               >
                 Talk to Sales
-              </a>
+              </Link>
             </div>
           </div>
         </div>

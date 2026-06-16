@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect"
 import { Navigation } from "@/components/navigation"
 
@@ -45,19 +46,19 @@ export function HeaderHero({ onLoginClick }: HeaderHeroProps) {
           </p>
 
           <div className="animate-fade-up-delay2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="group inline-flex items-center gap-2.5 bg-slate-900 text-white font-bold text-base px-8 py-4 rounded-full hover:bg-slate-800 hover:scale-[1.03] transition-all"
             >
               Contact With Expert
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="/about"
+            </Link>
+            <Link
+              to="/about"
               className="inline-flex items-center gap-2.5 text-slate-500 hover:text-slate-800 font-semibold text-base transition-colors"
             >
               Learn More
-            </a>
+            </Link>
           </div>
 
           <div className="animate-fade-up-delay2 mt-14 flex flex-wrap items-center justify-center gap-6 md:gap-10">

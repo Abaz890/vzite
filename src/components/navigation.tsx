@@ -171,13 +171,13 @@ export function Navigation({ onLoginClick }: NavigationProps) {
           <button onClick={handleLogin} className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100">
             Login
           </button>
-          <a
-            href="#"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-1.5 bg-slate-900 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all hover:bg-slate-800"
           >
             Get Free Demo
             <ChevronRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         <button
@@ -311,9 +311,9 @@ export function Navigation({ onLoginClick }: NavigationProps) {
             <MobileCompanyNavItem items={companyItems} onClose={() => setMobileOpen(false)} />
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
               <button onClick={() => { handleLogin(); setMobileOpen(false) }} className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors text-center">Login</button>
-              <a href="#" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
+              <Link to="/contact" className="flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors">
                 Get Free Demo
-              </a>
+              </Link>
             </div>
           </div>
         </div>
