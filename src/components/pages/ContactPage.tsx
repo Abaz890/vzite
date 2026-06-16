@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import emailjs from "@emailjs/browser"
 import { Mail, Phone, MapPin, CheckCircle } from "lucide-react"
 import { Navigation } from "@/components/navigation"
@@ -80,9 +80,19 @@ export function ContactPage() {
         formRef.current!,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
-      .then(() => setSent(true))
+      .then(() => {
+        setSent(true)
+        formRef.current?.reset()
+      })
       .catch(() => alert("Failed to send. Try again."))
   }
+
+  useEffect(() => {
+    if (sent) {
+      const t = setTimeout(() => setSent(false), 5000)
+      return () => clearTimeout(t)
+    }
+  }, [sent])
 
   if (sent) {
     return (
