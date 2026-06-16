@@ -204,11 +204,11 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                         onClick={() => setOpenMenu(null)}
                         className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
-                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-brand/10 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-brand" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-brand">{item.label}</div>
                           {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
                         </div>
                       </Link>
@@ -228,11 +228,11 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                         onClick={() => setOpenMenu(null)}
                         className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
-                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-brand/10 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-brand" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-brand">{item.label}</div>
                           {item.desc && <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>}
                         </div>
                       </Link>
@@ -277,11 +277,11 @@ export function Navigation({ onLoginClick }: NavigationProps) {
                         onClick={() => setOpenMenu(null)}
                         className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-100 transition-colors">
-                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-teal-600" />
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-brand/10 transition-colors">
+                          <item.icon className="w-3.5 h-3.5 text-slate-600 group-hover:text-brand" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700">{item.label}</div>
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-brand">{item.label}</div>
                           <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
                         </div>
                       </Link>
