@@ -216,8 +216,8 @@ export function ContactPage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { icon: MapPin, title: "Dubai HQ", detail: "Building 4, Dubai Internet City, Dubai, UAE" },
-            { icon: Phone, title: "Phone", detail: "+971 4 XXX XXXX (Sun–Thu, 9am–6pm GST)" },
-            { icon: Mail, title: "Email", detail: "hello@vzite.com · support@vzite.com" },
+            { icon: Phone, title: "Phone", detail: "+971 58 588 9961 (Sun–Thu, 9am–6pm GST)" },
+            { icon: Mail, title: "Email", detail: "support@vzite.com" },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100">
               <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0">
