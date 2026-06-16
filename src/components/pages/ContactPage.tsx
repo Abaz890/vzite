@@ -1,4 +1,6 @@
-import { Mail, Phone, MapPin } from "lucide-react"
+import { useRef, useState } from "react"
+import emailjs from "@emailjs/browser"
+import { Mail, Phone, MapPin, CheckCircle } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/landing/footer"
 
@@ -66,6 +68,34 @@ const WorldMapSVG = () => (
 )
 
 export function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [sent, setSent] = useState(false)
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault()
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => setSent(true))
+      .catch(() => alert("Failed to send. Try again."))
+  }
+
+  if (sent) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-slate-900">Message Sent!</h2>
+          <p className="text-slate-500 mt-2">We'll get back to you shortly.</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Subtle grid overlay */}
@@ -121,11 +151,12 @@ export function ContactPage() {
 
             {/* Right panel - Form */}
             <div className="bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-100">
-              <form className="flex flex-col gap-5 h-full">
+              <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-5 h-full">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Full name</label>
                   <input
                     type="text"
+                    name="from_name"
                     placeholder="Manu Arora"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
@@ -134,6 +165,7 @@ export function ContactPage() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
                   <input
                     type="email"
+                    name="from_email"
                     placeholder="support@aceternity.com"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
@@ -142,6 +174,7 @@ export function ContactPage() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Company</label>
                   <input
                     type="text"
+                    name="company"
                     placeholder="Aceternity Labs LLC"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
@@ -149,6 +182,7 @@ export function ContactPage() {
                 <div className="flex-1">
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
                   <textarea
+                    name="message"
                     placeholder="Type your message here"
                     rows={6}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 resize-none transition"
