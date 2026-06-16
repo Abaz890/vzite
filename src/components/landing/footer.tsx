@@ -41,13 +41,13 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xs font-bold text-teal-600 uppercase tracking-widest mb-4">
+              <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#0F4291' }}>
                 Ready to Transform Your Brokerage?
               </p>
               <h2 className="text-3xl md:text-4xl font-black leading-tight mb-4">
                 <span className="text-slate-900">Join 500+ UAE Brokerages</span>
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F4291] to-blue-400">
                   Growing With Vzite
                 </span>
               </h2>

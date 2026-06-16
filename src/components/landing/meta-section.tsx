@@ -34,13 +34,13 @@ export function MetaSection() {
               </div>
               <div>
                 <div className="text-[11px] text-slate-400 font-medium">New leads today</div>
-                <div className="text-lg font-black text-slate-900 leading-none">+47 <span className="text-xs font-semibold text-emerald-500">↑ 12%</span></div>
+                <div className="text-xl font-black text-slate-900">+47 <span className="text-xs font-semibold" style={{ color: '#0F4291' }}>↑ 12%</span></div>
               </div>
             </div>
 
             {/* Top-right: sync badge */}
             <div className="absolute -top-4 -right-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#0F4291' }} />
               <div className="text-[11px] font-bold text-slate-700">Meta Sync</div>
               <div className="text-[10px] text-slate-400">Live · 2s ago</div>
             </div>
@@ -49,13 +49,13 @@ export function MetaSection() {
             <div className="absolute top-1/2 -translate-y-1/2 -left-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3">
               <div className="text-[11px] text-slate-400 font-medium mb-0.5">Cost per Lead</div>
               <div className="text-xl font-black text-slate-900">$4.20</div>
-              <div className="text-[10px] text-emerald-500 font-semibold">↓ 31% vs last month</div>
+              <div className="text-[10px] font-semibold" style={{ color: '#0F4291' }}>↓ 31% vs last month</div>
             </div>
 
             {/* Middle-right: closed deals */}
             <div className="absolute top-1/2 -translate-y-1/2 -right-2 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
-                <Target className="w-4 h-4 text-emerald-600" />
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#e8f0fc' }}>
+                <Target className="w-4 h-4" style={{ color: '#0F4291' }} />
               </div>
               <div>
                 <div className="text-[11px] text-slate-400 font-medium">Closed This Month</div>
@@ -67,7 +67,7 @@ export function MetaSection() {
             <div className="absolute -bottom-4 left-4 z-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3">
               <div className="text-[11px] text-slate-400 font-medium mb-0.5">Avg. ROI on Ad Spend</div>
               <div className="text-xl font-black text-slate-900">8.4×</div>
-              <div className="text-[10px] text-emerald-500 font-semibold">across active campaigns</div>
+              <div className="text-[10px] font-semibold" style={{ color: '#0F4291' }}>across active campaigns</div>
             </div>
 
             {/* Bottom-right: pipeline badge */}
@@ -108,7 +108,7 @@ export function MetaSection() {
                   icon: BarChart3,
                   title: "Real-Time Attribution",
                   desc: "See exactly which campaigns, ads, and audiences drive closed deals. Close the loop from impression to commission.",
-                  color: "bg-teal-50 text-teal-600",
+                  color: "bg-blue-50 text-[#0F4291]",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4">

@@ -5,19 +5,19 @@ const features = [
     icon: Building2,
     title: "Developer Inventory",
     desc: "Live unit availability from Emaar, Nakheel, DAMAC, Sobha, and 50+ developers updated daily.",
-    color: "bg-emerald-50 text-emerald-600",
+    color: "bg-blue-50 text-[#0F4291]"
   },
   {
     icon: FileText,
     title: "Instant Brochure Gen",
     desc: "Create polished, branded PDF presentations in one click. Custom logos, agent details, payment plans included.",
-    color: "bg-teal-50 text-teal-600",
+    color: "bg-blue-50 text-[#0F4291]"
   },
   {
     icon: Share2,
     title: "WhatsApp Link Sharing",
     desc: "Generate trackable, mobile-optimized property links. Know exactly who opened it and when.",
-    color: "bg-green-50 text-green-600",
+    color: "bg-blue-50 text-[#0F4291]"
   },
   {
     icon: Globe,
@@ -45,10 +45,10 @@ export function OffPlanSection() {
     <section className="py-12 md:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-emerald-600 uppercase tracking-widest mb-4">Off-Plan Project Suite</p>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: '#0F4291' }}>Off-Plan Project Suite</p>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-[1.1] mb-4">
             <span className="text-slate-900">Present Dubai's Finest{" "}</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F4291] via-blue-500 to-blue-400">
               Off-Plan Projects
             </span>
           </h2>

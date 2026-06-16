@@ -84,7 +84,7 @@ export function BlogPage() {
       <section className="relative z-10 pt-16 pb-12 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-            <TypewriterEffectSmooth words={[{ text: "Vzite Blog", className: "text-slate-900" }]} cursorClassName="bg-teal-500" />
+            <TypewriterEffectSmooth words={[{ text: "Vzite Blog", className: "text-slate-900" }]} cursorClassName="bg-[#0F4291]" />
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
             Insights, guides, and market analysis for UAE real estate professionals.
@@ -105,17 +105,17 @@ export function BlogPage() {
                 <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
-                    <span className="font-semibold text-teal-600">{post.category}</span>
+                    <span className="font-semibold" style={{ color: '#0F4291' }}>{post.category}</span>
                     <span>•</span>
                     <span>{post.date}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#0F4291] transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-sm text-slate-500 leading-relaxed mb-4">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">{post.readTime}</span>
-                    <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-teal-600 group-hover:gap-2 transition-all">
+                    <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all" style={{ color: '#0F4291' }}>
                       Read more
                       <ArrowRight className="w-4 h-4" />
                     </a>
@@ -139,7 +139,7 @@ export function BlogPage() {
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-3 text-xs text-slate-400 mb-2">
-                    <span className="font-semibold text-teal-600">{post.category}</span>
+                    <span className="font-semibold" style={{ color: '#0F4291' }}>{post.category}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
@@ -151,7 +151,7 @@ export function BlogPage() {
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="font-bold text-slate-900 group-hover:text-teal-600 transition-colors">
+                  <h3 className="font-bold text-slate-900 group-hover:text-[#0F4291] transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-sm text-slate-500 mt-1 line-clamp-1">{post.excerpt}</p>

@@ -34,14 +34,14 @@ function IntegrationConnector({ logo, label }: { logo?: string; label: string })
       </div>
       <div ref={dotsRef} className="flex items-center gap-1.5">
         {[0, 1, 2, 3, 4].map(i => (
-          <span key={i} className="dot block w-2.5 h-2.5 rounded-full bg-teal-500" />
+          <span key={i} className="dot block w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#0F4291' }} />
         ))}
       </div>
       <div className="w-20 h-20 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center p-2 flex-shrink-0">
         {logo ? (
           <img src={logo} alt={label} className="w-full h-full object-contain" />
         ) : (
-          <Globe className="w-9 h-9 text-teal-500" />
+          <Globe className="w-9 h-9" style={{ color: '#0F4291' }} />
         )}
       </div>
     </div>
@@ -162,7 +162,7 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
               <motion.div
                 key={i}
                 {...anim(0.1 * i)}
-                className="p-6 rounded-2xl border border-slate-100 bg-slate-50/40 hover:border-teal-200 hover:bg-teal-50/30 transition-colors duration-300"
+                className="p-6 rounded-2xl border border-slate-100 bg-slate-50/40 hover:border-blue-200 hover:bg-blue-50/30 transition-colors duration-300"
               >
                 <h3 className="font-bold text-slate-900 text-lg mb-2">{s.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{s.description}</p>
@@ -187,9 +187,9 @@ export function FeatureDetailPage({ page }: FeatureDetailPageProps) {
                 <motion.div
                   key={idx}
                   {...anim(0.05 * idx)}
-                  className="flex items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white hover:shadow-md hover:border-teal-100 transition-all duration-300"
+                  className="flex items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white hover:shadow-md hover:border-blue-100 transition-all duration-300"
                 >
-                  <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: '#0F4291' }}>
                     <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
                   </div>
                   <div>
