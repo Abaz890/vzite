@@ -61,7 +61,7 @@ export function AboutPage() {
       <section className="relative z-10 pt-16 pb-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-            <TypewriterEffectSmooth words={[{ text: "Building the Future of", className: "text-slate-900" }]} cursorClassName="bg-teal-500" />
+            <TypewriterEffectSmooth words={[{ text: "Building the Future of", className: "text-slate-900" }]} cursorClassName="bg-[#0F4291]" />
             <br />UAE Real Estate
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
@@ -81,7 +81,7 @@ export function AboutPage() {
               { value: "50+", label: "Team Members" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
-                <div className="text-3xl md:text-4xl font-black text-teal-600">{stat.value}</div>
+                <div className="text-3xl md:text-4xl font-black text-[#0F4291]">{stat.value}</div>
                 <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
               </div>
             ))}
@@ -93,7 +93,7 @@ export function AboutPage() {
       <section className="relative z-10 pb-20 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Our Mission</h2>
@@ -103,22 +103,22 @@ export function AboutPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <Users className="w-8 h-8 text-teal-400 mb-3" />
+                  <Users className="w-8 h-8 text-blue-400 mb-3" />
                   <div className="text-white font-semibold">For Brokers</div>
                   <div className="text-slate-400 text-sm mt-1">Built by brokers, for brokers</div>
                 </div>
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <Target className="w-8 h-8 text-teal-400 mb-3" />
+                  <Target className="w-8 h-8 text-blue-400 mb-3" />
                   <div className="text-white font-semibold">For Growth</div>
                   <div className="text-slate-400 text-sm mt-1">Scale without limits</div>
                 </div>
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <Award className="w-8 h-8 text-teal-400 mb-3" />
+                  <Award className="w-8 h-8 text-blue-400 mb-3" />
                   <div className="text-white font-semibold">For Success</div>
                   <div className="text-slate-400 text-sm mt-1">Your wins are our wins</div>
                 </div>
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <Globe className="w-8 h-8 text-teal-400 mb-3" />
+                  <Globe className="w-8 h-8 text-blue-400 mb-3" />
                   <div className="text-white font-semibold">For UAE</div>
                   <div className="text-slate-400 text-sm mt-1">Locally built, globally minded</div>
                 </div>

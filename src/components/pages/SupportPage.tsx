@@ -11,7 +11,7 @@ const helpCategories = [
     title: "Documentation",
     description: "Detailed guides and API references",
     articles: 124,
-    color: "text-teal-600 bg-teal-50",
+    color: "text-[#0F4291] bg-[#0F4291]/10",
   },
   {
     icon: Video,
@@ -67,13 +67,13 @@ function AccordionItem({ question, answer, category, isOpen, onClick }: any) {
         className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
       >
         <div className="flex-1 pr-8">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-teal-600 mb-2 block">{category}</span>
-          <h3 className={`font-bold text-lg transition-colors duration-200 ${isOpen ? 'text-teal-700' : 'text-slate-900 group-hover:text-teal-600'}`}>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#0F4291] mb-2 block">{category}</span>
+          <h3 className={`font-bold text-lg transition-colors duration-200 ${isOpen ? 'text-[#0F4291]' : 'text-slate-900 group-hover:text-[#0F4291]'}`}>
             {question}
           </h3>
         </div>
-        <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-teal-500 border-teal-500 rotate-180' : 'border-slate-200 group-hover:border-teal-500'}`}>
-          <ChevronDown className={`w-4 h-4 transition-colors ${isOpen ? 'text-white' : 'text-slate-400 group-hover:text-teal-500'}`} />
+        <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#0F4291] border-[#0F4291] rotate-180' : 'border-slate-200 group-hover:border-[#0F4291]'}`}>
+          <ChevronDown className={`w-4 h-4 transition-colors ${isOpen ? 'text-white' : 'text-slate-400 group-hover:text-[#0F4291]'}`} />
         </div>
       </button>
       <AnimatePresence>
@@ -118,7 +118,7 @@ export function SupportPage() {
       <section className="relative z-10 pt-16 pb-12 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-            <TypewriterEffectSmooth words={[{ text: "How Can We Help?", className: "text-slate-900" }]} cursorClassName="bg-teal-500" />
+            <TypewriterEffectSmooth words={[{ text: "How Can We Help?", className: "text-slate-900" }]} cursorClassName="bg-[#0F4291]" />
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed mb-8">
             Find answers, learn Vzite inside out, or reach out to our support team.
@@ -133,12 +133,12 @@ export function SupportPage() {
             {helpCategories.map((cat) => (
               <div
                 key={cat.title}
-                className="group p-6 bg-white rounded-2xl border border-slate-100 hover:shadow-lg hover:border-teal-100 transition-all cursor-default"
+                className="group p-6 bg-white rounded-2xl border border-slate-100 hover:shadow-lg hover:border-[#0F4291]/20 transition-all cursor-default"
               >
                 <div className={`w-12 h-12 rounded-xl ${cat.color} flex items-center justify-center mb-4`}>
                   <cat.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-slate-900 group-hover:text-teal-600 transition-colors">{cat.title}</h3>
+                <h3 className="font-bold text-slate-900 group-hover:text-[#0F4291] transition-colors">{cat.title}</h3>
                 <p className="text-sm text-slate-500 mt-1">{cat.description}</p>
                 {cat.articles && (
                   <div className="text-xs text-slate-400 mt-3">{cat.articles} articles</div>

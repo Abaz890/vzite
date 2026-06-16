@@ -37,9 +37,9 @@ const features = [
 ]
 
 const mobileWords = [
-  { text: "iOS", className: "text-teal-500" },
-  { text: "Android", className: "text-teal-500" },
-  { text: "Mobile", className: "text-teal-500" },
+  { text: "iOS", className: "text-[#0F4291]" },
+  { text: "Android", className: "text-[#0F4291]" },
+  { text: "Mobile", className: "text-[#0F4291]" },
 ]
 
 export function MobilePage() {
@@ -55,7 +55,7 @@ export function MobilePage() {
             <br />
             in Your Pocket{" "}
             <span className="inline-flex items-center">
-              <TypewriterEffectSmooth words={mobileWords} cursorClassName="bg-teal-500" />
+              <TypewriterEffectSmooth words={mobileWords} cursorClassName="bg-[#0F4291]" />
             </span>
           </h1>
           <p className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
@@ -68,7 +68,7 @@ export function MobilePage() {
       <section className="relative pb-20 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -82,7 +82,7 @@ export function MobilePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                      <Zap className="w-4 h-4 text-teal-400" />
+                      <Zap className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
                       <div className="text-white text-sm font-medium">Instant Sync</div>
@@ -91,7 +91,7 @@ export function MobilePage() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                      <Shield className="w-4 h-4 text-teal-400" />
+                      <Shield className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
                       <div className="text-white text-sm font-medium">Secure</div>
@@ -100,7 +100,7 @@ export function MobilePage() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                      <Star className="w-4 h-4 text-teal-400" />
+                      <Star className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
                       <div className="text-white text-sm font-medium">4.9 Rating</div>
@@ -156,10 +156,10 @@ export function MobilePage() {
               return (
                 <div
                   key={feature.title}
-                  className="group bg-white rounded-2xl p-7 border border-slate-100 hover:border-teal-100 hover:bg-teal-50/20 transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="group bg-white rounded-2xl p-7 border border-slate-100 hover:border-[#0F4291]/20 hover:bg-[#0F4291]/5 transition-all duration-300 shadow-sm hover:shadow-md"
                 >
                   <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:shadow-sm transition-all">
-                    <Icon className="w-5 h-5 text-teal-600" strokeWidth={2} />
+                    <Icon className="w-5 h-5 text-[#0F4291]" strokeWidth={2} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>

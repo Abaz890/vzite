@@ -102,15 +102,15 @@ export function ContactPage() {
 
               {/* Contact links */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8 text-sm">
-                <a href="mailto:hello@vzite.com" className="text-teal-600 hover:text-teal-700 font-medium transition-colors">
+                <a href="mailto:hello@vzite.com" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
                   hello@vzite.com
                 </a>
                 <span className="text-slate-300">•</span>
-                <a href="tel:+97141234567" className="text-teal-600 hover:text-teal-700 font-medium transition-colors">
+                <a href="tel:+97141234567" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
                   +1 (800) 123 XX21
                 </a>
                 <span className="text-slate-300">•</span>
-                <a href="mailto:support@vzite.com" className="text-teal-600 hover:text-teal-700 font-medium transition-colors">
+                <a href="mailto:support@vzite.com" className="text-[#0F4291] hover:text-[#0F4291]/80 font-medium transition-colors">
                   support@vzite.com
                 </a>
               </div>
@@ -131,7 +131,7 @@ export function ContactPage() {
                   <input
                     type="text"
                     placeholder="Manu Arora"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
                 </div>
                 <div>
@@ -139,7 +139,7 @@ export function ContactPage() {
                   <input
                     type="email"
                     placeholder="support@aceternity.com"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export function ContactPage() {
                   <input
                     type="text"
                     placeholder="Aceternity Labs LLC"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 transition"
                   />
                 </div>
                 <div className="flex-1">
@@ -155,7 +155,7 @@ export function ContactPage() {
                   <textarea
                     placeholder="Type your message here"
                     rows={6}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 resize-none transition"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#0F4291] focus:border-transparent text-sm text-slate-800 placeholder:text-slate-400 resize-none transition"
                   />
                 </div>
                 <button
@@ -181,7 +181,7 @@ export function ContactPage() {
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100">
               <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0">
-                <item.icon className="w-5 h-5 text-teal-600" />
+                <item.icon className="w-5 h-5 text-[#0F4291]" />
               </div>
               <div>
                 <div className="font-semibold text-slate-900 text-sm">{item.title}</div>
