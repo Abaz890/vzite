@@ -1,109 +1,233 @@
-import { useRef, useEffect, useState } from "react"
-import { User, Lock, ArrowRight } from "lucide-react"
+// import { useGlobalState } from "@/providers/globalContext";
+import VziteLogo from "@/assets/vzite.svg";
+import { Input } from "@/components/ui/input";
+import { ToastAction } from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster";
+import { useGlobalState } from "@/providers/globalContext";
+import companyAuthRepository from "@/repositories/company/companyAuthRepository";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
+import { useToast } from "@/hooks/use-toast";
+import LoginScreen from '@/assets/login image.jpg';
+import GooglePlayBadge from '@/assets/googleplay.png';
+import AppStoreBadge from '@/assets/appstore.png';
 
-export function LoginPage({ onBack: _onBack }: { onBack: () => void }) {
-  const userRef = useRef<HTMLInputElement>(null)
-  const passRef = useRef<HTMLInputElement>(null)
-  const [userFocus, setUserFocus] = useState(false)
-  const [passFocus, setPassFocus] = useState(false)
 
+export default function CompanyLogin({ onBack }: { onBack?: () => void }) {
+  // const {can ,canAny , updatePermissions } = useGlobalState();
+  const { permissions, token, init } = useGlobalState();
+  const [isLoading, setIsLoading] = useState(false);
+  let { search } = useLocation();
+  let navigate = useNavigate();
+
+  const { toast } = useToast();
+
+
+  const appStoreUrl = import.meta.env.VITE_APPSTORE_APP_URL;
+  const playStoreUrl = import.meta.env.VITE_GOOGLE_PLAY_APP_URL;
+
+
+
+  const query = new URLSearchParams(search);
+
+  const passwordValiationSchema = z
+    .string()
+    .min(6, { message: "Password must be at least 8 characters long" })
+    .max(50, { message: "Password cannot exceed 50 characters" });
+
+  const formSchema = z.object({
+    email: z.string().trim().email({ message: "Invalid email format" }).min(5, { message: "Email must be at least 5 characters long" }).max(50, { message: "Email cannot exceed 50 characters" }),
+    password: passwordValiationSchema,
+  });
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+
+  const loginViaSuperToken = async () => {
+    const qToken = query.get("token")!;
+    const email = query.get('email')!;
+    const data = {
+      email,
+      token: qToken
+    }
+    if (qToken && email) {
+      const response = await companyAuthRepository.companyLoginBySupertoken(data);
+      if (response.success) {
+        permissions.set(response.data.permissions);
+        token.set(response.data.token);
+
+        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
+        Cookies.set("token", response.data.token);
+        init();
+        let redirectTo = '/company/module/deal_4266/kanban';
+        if (response.data.is_admin) {
+          redirectTo = '/company/module/management_5873/kanban';
+        }
+        navigate(redirectTo, { replace: true });
+      }
+    }
+  };
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
+    const response = await companyAuthRepository.companyLogin(values);
+    if (response.success) {
+      permissions.set(response.data.permissions);
+      token.set(response.data.token);
+
+      axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
+      Cookies.set("token", response.data.token);
+      toast({
+        variant: "default",
+        duration: 800,
+        className: "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4",
+        title: "Agent Successfully Logged-in",
+        action: <ToastAction altText="close">close</ToastAction>,
+      });
+
+      init();
+
+      let redirectTo = '/company/module/deal_4266/kanban';
+      if (response.data.is_admin) {
+        redirectTo = '/company/module/management_5873/kanban';
+      }
+      navigate(redirectTo, { replace: true });
+    }
+    else {
+
+      toast({
+        variant: "destructive",
+        duration: 2000,
+        title: response.message,
+        action: <ToastAction altText="close">close</ToastAction>,
+      });
+    }
+
+    setIsLoading(false)
+  };
   useEffect(() => {
-    const handleBlur = (input: HTMLInputElement, setValue: (v: boolean) => void) => {
-      if (!input.value) setValue(false)
-    }
-    const u = userRef.current!
-    const p = passRef.current!
-    const uBlur = () => handleBlur(u, setUserFocus)
-    const pBlur = () => handleBlur(p, setPassFocus)
-    u.addEventListener("blur", uBlur)
-    p.addEventListener("blur", pBlur)
-    return () => {
-      u.removeEventListener("blur", uBlur)
-      p.removeEventListener("blur", pBlur)
-    }
-  }, [])
+    loginViaSuperToken();
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Same subtle grid as landing */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      <div className="relative z-10 w-full max-w-sm animate-fade-up">
-        <div className="bg-white border border-slate-200 rounded-3xl shadow-xl shadow-black/5 p-8">
-          <h2 className="text-2xl font-black text-slate-900 mb-1">Welcome back</h2>
-          <p className="text-sm text-slate-400 mb-8">Sign in to your account</p>
-
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
-            {/* Username */}
-            <div className={`relative flex items-center gap-3 border-b-2 pb-2 transition-colors duration-300 ${userFocus ? "border-slate-900" : "border-slate-200"}`}>
-              <User className={`w-4 h-4 flex-shrink-0 transition-colors duration-300 ${userFocus ? "text-slate-900" : "text-slate-300"}`} />
-              <div className="relative flex-1 h-[42px]">
-                <label
-                  className={`absolute left-2 transition-all duration-300 pointer-events-none font-medium ${
-                    userFocus ? "text-[11px] top-0 text-slate-900" : "text-sm top-1/2 -translate-y-1/2 text-slate-400"
-                  }`}
-                >
-                  Email
-                </label>
-                <input
-                  ref={userRef}
-                  type="email"
-                  className="absolute inset-0 w-full bg-transparent outline-none border-none px-2 pt-4 text-sm text-slate-800 font-medium"
-                  onFocus={() => setUserFocus(true)}
-                />
-              </div>
+    <main className="h-screen bg-white">
+      <div className="hidden md:flex grid grid-cols-12 gap-6 h-full">
+        <div className="col-span-0 md:col-span-7 h-full">
+          <img src={LoginScreen} alt="" className="h-full" />
+        </div>
+        <div className="col-span-12 md:col-span-5 bg-white text-gray-900">
+          <div className="flex justify-center">
+            {onBack && (
+              <button onClick={onBack} className="absolute left-4 top-4 text-gray-500 hover:text-gray-900">
+                ← Back
+              </button>
+            )}
+            <Link to={"/"} className="my-8">
+              <img src={VziteLogo} alt="Vzite" title="Vzite" width={140} height={22} />
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-6 my-10 me-4">
+            <div className="">
+              <div className="text-2xl font-bold">Login To Your Account</div>
+              <p className="text-gray-500">Enter your email below to login to your account</p>
             </div>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-12">
+                  <div className="col-span-12 md:col-span-12 flex flex-col">
+                    <div className="mb-2">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input id="email" type="text" {...field} className="border-gray-400" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
-            {/* Password */}
-            <div className={`relative flex items-center gap-3 border-b-2 pb-2 transition-colors duration-300 ${passFocus ? "border-slate-900" : "border-slate-200"}`}>
-              <Lock className={`w-4 h-4 flex-shrink-0 transition-colors duration-300 ${passFocus ? "text-slate-900" : "text-slate-300"}`} />
-              <div className="relative flex-1 h-[42px]">
-                <label
-                  className={`absolute left-2 transition-all duration-300 pointer-events-none font-medium ${
-                    passFocus ? "text-[11px] top-0 text-slate-900" : "text-sm top-1/2 -translate-y-1/2 text-slate-400"
-                  }`}
-                >
-                  Password
-                </label>
-                <input
-                  ref={passRef}
-                  type="password"
-                  className="absolute inset-0 w-full bg-transparent outline-none border-none px-2 pt-4 text-sm text-slate-800 font-medium"
-                  onFocus={() => setPassFocus(true)}
-                />
-              </div>
-            </div>
+                    <div className="mb-4">
+                      <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Password</FormLabel>
+                            <FormControl>
+                              <Input id="password" type="password" {...field} className="border-gray-400" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <Button type="submit" disabled={isLoading || !form.formState.isValid} className="bg-[#8B8B8B] hover:bg-[#8B8B8B]/90 text-white" >
+                        {isLoading ? <Spinner></Spinner> : <></>}
+                        Login
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </Form>
+          </div>
+        </div>
+      </div>
 
-            <div className="flex justify-end">
-              <a href="#" className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-medium">
-                Forgot password?
-              </a>
-            </div>
 
-            <button
-              type="submit"
-              className="group w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm py-3.5 rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Login
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </form>
+      <div className="flex md:hidden flex-col items-center justify-center space-y-6 px-6 flex-1 bg-white text-gray-900">
+        <Link to={"/"} className="my-8">
+          <img src={VziteLogo} alt="Vzite" title="Vzite" width={140} height={22} />
+        </Link>
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl font-bold">Download Our App</h2>
+          <p className="text-gray-500 text-lg">Get the best experience with our mobile app</p>
         </div>
 
-        <p className="text-center text-xs text-slate-400 mt-6">
-          Don't have an account?{" "}
-          <a href="#" className="text-slate-900 font-semibold hover:underline">
-            Request a demo
+        <div className="flex flex-col gap-4 w-full max-w-xs items-center">
+          {/* App Store Button */}
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block transition-transform hover:scale-105"
+          >
+            <img src={AppStoreBadge} alt="Download on the App Store" className="w-[160px] h-auto" />
           </a>
-        </p>
+
+          {/* Google Play Button */}
+          <a
+            href={playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block transition-transform hover:scale-105"
+          >
+            <img src={GooglePlayBadge} alt="Get it on Google Play" className="w-[180px] h-auto" />
+          </a>
+        </div>
       </div>
-    </div>
-  )
+      <Toaster />
+
+    </main>
+  );
 }
