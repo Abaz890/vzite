@@ -1,17 +1,47 @@
-import { StrictMode } from "react"
-import { createRoot } from "react-dom/client"
+import { BrowserRouter } from "react-router-dom";
+import * as ReactDOM from "react-dom/client";
+import Router from "@/router";
+import { GlobalStateProvider } from "./providers/globalContext";
+import { I18nextProvider } from "react-i18next";
+import i18next from "i18next";
+import en from "@/configs/i18next/en.json";
+import fr from "@/configs/i18next/fr.json";
+import "./index.css";
+import { PropertyProvider } from "./providers/propertyContext";
+import { AdminStateProvider } from "./providers/adminContext";
+import { ModuleProvider } from "./providers/moduleContext";
 
-import "./index.css"
-import App from "./App.tsx"
-import { ThemeProvider } from "@/components/theme-provider.tsx"
-import { GlobalStateProvider } from "@/providers/globalContext"
+// import i18n from '@/configs/i18n';
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <ThemeProvider>
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: "auto",
+  fallbackLng: "en",
+  resources: {
+    en: {
+      global: en,
+    },
+    fr: {
+      global: fr,
+    },
+  },
+});
+
+const container = document.getElementById("root")!;
+ReactDOM.createRoot(container).render(
+  // <StrictMode>
+  //   </StrictMode>
+  <I18nextProvider i18n={i18next}>
+    <AdminStateProvider>
       <GlobalStateProvider>
-        <App />
+        <ModuleProvider>
+          <PropertyProvider>
+            <BrowserRouter>
+              <Router />
+            </BrowserRouter>
+          </PropertyProvider>
+        </ModuleProvider>
       </GlobalStateProvider>
-    </ThemeProvider>
-  </StrictMode>
-)
+    </AdminStateProvider>
+  </I18nextProvider>
+);

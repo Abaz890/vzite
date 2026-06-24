@@ -1,0 +1,12 @@
+.lander{
+    background-image: url(https://26691002.fs1.hubspotusercontent-eu1.net/hubfs/26691002/_background/background_shape_CobaltBoltDarken.svg) !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    padding-top: 96px;
+    position: relative;
+}
+
+.backgroud-gray {
+    background-image: linear-gradient(rgb(243 243 243), rgb(229 229 255)) !important    
+}

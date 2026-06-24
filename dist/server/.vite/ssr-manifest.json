@@ -1,0 +1,1047 @@
+{
+  "node_modules/quill/dist/quill.snow.css": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "node_modules/react-dropzone/dist/es/index.js": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "node_modules/react-dropzone/dist/es/utils/index.js": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "node_modules/react-lazy-load-image-component/src/effects/blur.css": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/assets/appstore.png": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/assets/googleplay.png": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/assets/login image.jpg": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/assets/vzite.svg": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/RichTextEditor.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/StrictModeSafeDroppable.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/WhatsappIcon.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/addItemModal.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/deleteConfirmationDialog.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/deleteItemModal.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/distress_property_add_form/distress-basic-info-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/edititemModal.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/admin/adminNavbar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/admin/adminSidebar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/action.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/companyNavbar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/companySettingsLayout.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/companySideSheet.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/companySidebar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/layout/company/layout.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/moduleField.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/modules/actions.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/modules/import/ImportRow.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/modules/kanban/StrictModeDroppable.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/modules/layout.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/filters/beds-baths-filter.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/filters/home-type-filter.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/filters/price-filter.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/filters/size-filter.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/map-component.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/property-card.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/property-carousel.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_map/property-detail.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/amenities-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/attachments-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/basic-info-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/location-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/media-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/payment-plan-item.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/payment-plan-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/permits-and-licenses-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/seo-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/unit-item.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/off_plan_property_add_form/units-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/presentationModal.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/propertyFilter.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/propertyTab.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/amenities-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/basic-info-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/location-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/media-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/permits-and-licenses-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/pricing-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/property_add_form/seo-step.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/skeletonAction.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/skeletonComments.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/skeletonKanban.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/skeletonLeadView.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/skeletonTable.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/tagInput.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/accordion.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/avatar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/badge.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/button.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/calendar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/card.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/carousel.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/chart.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/checkbox.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/collapsible.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/command.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/datePicker.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/dialog.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/dropdown-menu.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/dropzone.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/form.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/input.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/label.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/lazyImage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/pagination.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/popover.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/progress.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/radio-group.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/select.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/selectDynamic.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/selectDynamicMultiple.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/selectRelational.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/separator.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/sheet.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/sidebar.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/skeleton.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/spinner.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/switch.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/table.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/tabs.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/textarea.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/toast.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/toaster.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/toggle-group.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/toggle.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/components/ui/tooltip.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/configs/i18next/en.json": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/configs/i18next/fr.json": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/entry-server.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/hooks/use-mobile.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/hooks/use-toast.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/index.css": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/layouts/AuthenticatedLayoutAdmin.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/layouts/AuthenticatedLayoutCompany.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/layouts/PropertyLayout.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/lib/page-data.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/lib/utils.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/LoginPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/admin_dashboard.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/companies/company_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/companies/company_edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/companies/company_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/developers/developers_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/distress_properties/distress_properties_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/distress_properties/distress_property_edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/login.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/modules/module_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/modules/module_edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/offplan_properties/offplan_properties_grid.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/offplan_properties/offplan_properties_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/offplan_properties/offplan_property_edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/posts/posts_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/posts/posts_edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/posts/posts_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/subscriptions/subscription_dashboard.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/workflows/workflow_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/administrator/workflows/workflow_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/Dashboard.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/Timeoff.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/agent/agent_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/agent/agent_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/agent_roles/agent_role_add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/agent_roles/agent_role_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/dashboard/admin_dashboard.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/marketing/facebook/instant_forms/add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/marketing/facebook/instant_forms/list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/marketing/list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/add.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/import.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/kanban.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/view.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/module/view/deal.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/off_plan/map.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/presentation/presentation_list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/property/edit.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/property/grid.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/property/list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/property/map.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/settings/integration/list.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/company/settings/settings.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/bento-section.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/features-carousel.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/footer.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/header-hero.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/index.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/landing.css": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/logo-ticker.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/meta-section.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/landing/testimonials.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/navigation.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/AboutPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/BlogPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/ContactPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/FeatureDetailPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/MobilePage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/pages/SupportPage.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/payment/successfull.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/ui/animated-testimonials.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/pages/ui/typewriter-effect.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/providers/adminContext.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/providers/globalContext.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/providers/moduleContext.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/providers/propertyContext.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminCompanyRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminDeveloperRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminDistressPropertyRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminModuleRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminOffPlanPropertyRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminPostRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminSubscriptionRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/admin/adminWorkflowRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyAgentRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyAgentRoleRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyAuthRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyDistressRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyIntegrationRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyMarketingFacebookRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyModuleRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyNotificationRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyOffPlanRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyPresentationRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyPropertyRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/company/companyTimeOffRequestRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/mediaRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/repositories/settingsRepository.ts": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ],
+  "src/router.tsx": [
+    "/client/assets/login image-BI9z2C8i.jpg",
+    "/client/assets/googleplay-DqPtJL0B.png",
+    "/client/assets/appstore-Cs_6u2tB.png"
+  ]
+}

@@ -48,8 +48,8 @@ interface GlobalStateContextType {
   };
 
   settings: {
-    list: Record<string, any>;
-    set: (permissions: string[]) => void;
+    list:  Record<string, any>;
+    set: (permissions: string[]) => void; 
   };
 
   activeModules: {
@@ -131,14 +131,25 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     deleteModalRef: null,
   });
 
+  // const { moduleId,moduleKanbanGroup } = useModuleState();
+
   const setGlobalModalRefs = (newRefs: Partial<GlobalStateContextType['modalRefs']>) => {
     setModalRefsState((prev) => ({ ...prev, ...newRefs }));
   };
 
 
-  const setGlobalState = async function () {
+  const setGlobalState = async function () {    
     Pusher.logToConsole = true;
     (window as any).Pusher = Pusher;
+
+    // const darkMode = Cookies.get("darkMode");
+    // if(!darkMode){
+    //   Cookies.set('darkMode','1');
+    // }
+    // else{
+    //   setDarkModeEnabled(parseInt(darkMode) > 0);
+
+    // }
 
     fetchInit();
   };
@@ -157,7 +168,7 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     };
 
     if (jwtPayload) {
-      echoPayload.authEndpoint = import.meta.env.VITE_BORADCAST_AUTH_URL;
+      echoPayload.authEndpoint = import.meta.env.VITE_BORADCAST_AUTH_URL; //http://localhost:8000/broadcasting/auth
       echoPayload.auth = {
         headers: {
           Authorization: `Bearer ${jwtPayload}`,
@@ -213,7 +224,7 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     set: (token: string) => {
       setTokenState({
         token,
-        expiresAt: Date.now() + 24 * 60 * 60 * 1000,
+        expiresAt: Date.now() + 24 * 60 * 60 * 1000, //24h
       });
     },
     clear: () => {
@@ -229,7 +240,7 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     set: (token: string) => {
       setPropertiesTokenState({
         token,
-        expiresAt: Date.now() + 24 * 60 * 60 * 1000,
+        expiresAt: Date.now() + 24 * 60 * 60 * 1000, //24h
       });
     },
     clear: () => {
@@ -245,7 +256,7 @@ export function GlobalStateProvider({ children }: { children: React.ReactNode })
     set: (token: string) => {
       setBackOfficeTokenState({
         token,
-        expiresAt: Date.now() + 24 * 60 * 60 * 1000,
+        expiresAt: Date.now() + 24 * 60 * 60 * 1000, //24h
       });
     },
     clear: () => {
